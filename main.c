@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 14:42:22 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/23 18:48:38 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/23 19:13:47 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,13 @@ int		main(int ac, char **av)
 	res = printf("Alabama is %i holobomo\n", atoi(av[2]));
 	printf("Return value : %d\n", res);
 	res = ft_printf("Alabama is %i holobomo\n", atoi(av[2]));
+	printf("Return value : %d\n", res);
+	printf("\n");
+
+	printf("Test de u\n");
+	res = printf("Alabama is %u holobomo\n", atoi(av[2]));
+	printf("Return value : %d\n", res);
+	res = ft_printf("Alabama is %u holobomo\n", atoi(av[2]));
 	printf("Return value : %d\n", res);
 	printf("\n");
 

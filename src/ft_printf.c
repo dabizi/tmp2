@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 18:10:07 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/23 19:00:41 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/23 19:34:18 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,18 @@ int			ft_printnbr(va_list aux)
 	int nb;
 
 	nb = va_arg(aux, int);
+	ft_putnbr_fd(nb, 1);
+	return (ft_strlen(ft_itoa(nb)));
+//4294967295
+}
+
+int			ft_printnbru(va_list aux)
+{
+	unsigned int nb;
+
+	nb = va_arg(aux, unsigned int);
+	if (nb < 0)
+		nb = 429467295 - nb;
 	ft_putnbr_fd(nb, 1);
 	return (ft_strlen(ft_itoa(nb)));
 }
@@ -81,8 +93,7 @@ static int			ft_switch(char c, va_list aux)
 	else if (c == 'i')
 		nb += ft_printnbr(aux);
 	else if (c == 'u')
-		ft_putchar_fd('u', 1);
-//TODO
+		nb += ft_printnbru(aux);
 	else if (c == 'x')
 		nb += ft_printptr(aux, 2);
 	else if (c == 'X')
