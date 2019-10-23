@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 18:10:07 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/23 18:36:06 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/23 19:00:41 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int				ft_printchar(va_list aux)
 	ft_putchar_fd(c, 1);
 	return (1);
 }
-
 
 int				ft_printstr(va_list aux)
 {
@@ -55,10 +54,13 @@ int			ft_printptr(va_list aux, int cse)
 		tmp = ft_itoa_base(ptr, "0123456789abcdef");
 	else
 		tmp = ft_itoa_base(ptr, "0123456789ABCDEF");
-	ft_putstr_fd(tmp, 1);
+	if (cse != 1)
+		ft_putstr_fd(tmp + 4, 1);
+	else
+		ft_putstr_fd(tmp, 1);
 	len = ft_strlen(tmp);
 	free(tmp);
-	return (len + 2);
+	return (len + ((cse == 1) ? 2 : -4));
 }
 
 static int			ft_switch(char c, va_list aux)
@@ -80,12 +82,14 @@ static int			ft_switch(char c, va_list aux)
 		nb += ft_printnbr(aux);
 	else if (c == 'u')
 		ft_putchar_fd('u', 1);
+//TODO
 	else if (c == 'x')
 		nb += ft_printptr(aux, 2);
 	else if (c == 'X')
 		nb += ft_printptr(aux, 3);
 	else if (c == '%')
 		ft_putchar_fd('%', 1);
+//TODO
 	else
 		return (-1);
 	return (nb);
