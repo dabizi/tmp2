@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 14:42:22 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/23 17:55:09 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/23 18:34:39 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int		main(int ac, char **av)
 	printf("Return value : %d\n", res);
 	printf("\n");
 
-
 	printf("Test de P\n");
 	res = printf("Alabama is %p holobomo\n", av[1]);
 	printf("Return value : %d\n", res);
@@ -68,5 +67,20 @@ int		main(int ac, char **av)
 	res = ft_printf("Alabama is %d holobomo\n", atoi(av[2]));
 	printf("Return value : %d\n", res);
 	printf("\n");
+
+	printf("Test de x\n");
+	res = printf("Alabama is %x holobomo\n", av[1]);
+	printf("Return value : %d\n", res);
+	res = ft_printf("Alabama is %x holobomo\n", av[1]);
+	printf("Return value : %d\n", res);
+	printf("\n");
+
+	printf("Test de X\n");
+	res = printf("Alabama is %X holobomo\n", av[1]);
+	printf("Return value : %d\n", res);
+	res = ft_printf("Alabama is %X holobomo\n", av[1]);
+	printf("Return value : %d\n", res);
+	printf("\n");
+
 	return (0);
 }

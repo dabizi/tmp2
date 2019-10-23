@@ -6,7 +6,7 @@
 /*   By: jgrandne <jgrandne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 16:53:58 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/23 16:33:38 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/23 18:15:56 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,7 @@ void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *));
+
+char		*ft_itoa_base(long long nb, char *base);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 18:10:07 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/23 17:55:08 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/23 18:36:06 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,22 +42,23 @@ int			ft_printnbr(va_list aux)
 	return (ft_strlen(ft_itoa(nb)));
 }
 
-int			ft_printptr(va_list aux)
+int			ft_printptr(va_list aux, int cse)
 {
 	long long ptr;
+	char *tmp;
+	int			len;
 
-	char hex[16] = "0123456789abcdef";
-	char Hex[16] = "0123456789ABCDEF";
-
-	ft_putstr_fd("0x", 1);
+	if (cse == 1)
+		ft_putstr_fd("0x", 1);
 	ptr = va_arg(aux, long long);
-	while (ptr > 16)
-	{
-		ft_putchar_fd(hex[ptr % 16], 1);
-		ptr /= 16;
-	}
-	ft_putchar_fd(hex[ptr], 1);
-	return (ft_strlen(ft_itoa(ptr)));
+	if (cse == 1 || cse == 2)
+		tmp = ft_itoa_base(ptr, "0123456789abcdef");
+	else
+		tmp = ft_itoa_base(ptr, "0123456789ABCDEF");
+	ft_putstr_fd(tmp, 1);
+	len = ft_strlen(tmp);
+	free(tmp);
+	return (len + 2);
 }
 
 static int			ft_switch(char c, va_list aux)
@@ -72,7 +73,7 @@ static int			ft_switch(char c, va_list aux)
 	else if (c == 's')
 		nb += ft_printstr(aux);
 	else if (c == 'p')
-		nb += ft_printptr(aux);
+		nb += ft_printptr(aux, 1);
 	else if (c == 'd')
 		nb += ft_printnbr(aux);
 	else if (c == 'i')
@@ -80,9 +81,9 @@ static int			ft_switch(char c, va_list aux)
 	else if (c == 'u')
 		ft_putchar_fd('u', 1);
 	else if (c == 'x')
-		ft_putchar_fd('x', 1);
+		nb += ft_printptr(aux, 2);
 	else if (c == 'X')
-		ft_putchar_fd('X', 1);
+		nb += ft_printptr(aux, 3);
 	else if (c == '%')
 		ft_putchar_fd('%', 1);
 	else
