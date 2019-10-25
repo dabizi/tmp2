@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/25 12:52:44 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/25 17:33:37 by jgrandne         ###   ########.fr       */
+/*   Created: 2019/10/16 12:52:44 by jgrandne          #+#    #+#             */
+/*   Updated: 2019/10/25 18:48:38 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 
 # define CAP "0123456789ABCDEF"
 # define MIN "0123456789abcdef"
+# define PTR 1
+# define XADR 2
+# define MXADR 3
 
 typedef struct	s_printf
 {
@@ -30,7 +33,12 @@ typedef struct	s_printf
 }				t_printf;
 
 int				ft_printf(const char *str, ...);
-int				ft_check_conv(t_printf *seg, char *str, va_list aux);
-int				ft_check_flags(t_printf *seg, char *str, va_list aux);
+
+void	ft_conv_char(va_list aux, int *res);
+void	ft_conv_str(va_list aux, int *res);
+void	ft_parse_conv(int *i, const char *str, va_list aux, int *res);
+void	ft_conv_int(va_list aux, int *res);
+void	ft_conv_uint(va_list aux, int *res);
+void	ft_conv_adr(va_list aux, int *res, int cse);
 
 #endif

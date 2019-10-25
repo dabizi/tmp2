@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 14:42:22 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/25 17:27:14 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/25 18:49:17 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,10 @@ int		main(int ac, char **av)
 
 
 	printf("Test de C\n");
-	res = ft_printf("%0-*.c\n", 'a');
+	res = ft_printf("Alabama %s\n", "alalalalalalalalalal");
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
 
-	/*
 	printf("Test de Base\n");
 	res = printf("Alabama\n");
 	printf("Return value : %d\n", res);
@@ -95,9 +94,8 @@ int		main(int ac, char **av)
 	printf("Return value : %d\n", res);
 	res = ft_printf("Alabama is %X holobomo\n", (unsigned int)atoi(av[1]));
 	printf("Return value : %d\n", res);
-	printf("\n");*/
+	printf("\n");
 
-/*
 	printf("Test de C\n");
 	res = printf("%0-c\n", 'a');
 	printf("Return value : %d\n", res);
@@ -144,9 +142,9 @@ int		main(int ac, char **av)
 	res = printf("Alabama is %07d\n", -123);
 	printf("Return value : %d\n\n", res);
 
-//	res = ft_printf("Alabama is %X holobomo\n", (unsigned int)atoi(av[1]));
-//	printf("Return value : %d\n", res);
+	res = ft_printf("Alabama is %X holobomo\n", (unsigned int)atoi(av[1]));
+	printf("Return value : %d\n", res);
 	printf("\n");
-*/
+
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 18:10:07 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/25 17:57:03 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/25 18:56:21 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,11 @@ int					ft_printf(const char *str, ...)
 		if (str[i] == '%')
 			ft_parse_conv(&i, str, aux, &res);
 		else
+		{
 			ft_putchar_fd(str[i], 1);
+			res += 1;
+		}
+		i++;
 	}
 	va_end(aux);
 	return (res);
