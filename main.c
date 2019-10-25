@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 14:42:22 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/25 17:15:35 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/25 17:27:14 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@ int		main(int ac, char **av)
 
 	res = 0;
 	ac = 1;
+
+
+	printf("Test de C\n");
+	res = ft_printf("%0-*.c\n", 'a');
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
 
 	/*
 	printf("Test de Base\n");
@@ -91,7 +97,7 @@ int		main(int ac, char **av)
 	printf("Return value : %d\n", res);
 	printf("\n");*/
 
-
+/*
 	printf("Test de C\n");
 	res = printf("%0-c\n", 'a');
 	printf("Return value : %d\n", res);
@@ -106,7 +112,7 @@ int		main(int ac, char **av)
 	res = ft_printf("%0*d\n", 5, 3);
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
-/*
+
 	printf("Test de C\n");
 	res = printf("%-d\n", 123);
 	printf("Return value : %d\n", res);

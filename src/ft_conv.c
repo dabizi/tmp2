@@ -6,13 +6,39 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 16:53:23 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/25 16:56:28 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/25 18:14:57 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-int				ft_printchar(va_list aux)
+void	ft_conv_char(va_list aux, int *res)
+{
+	char c;
+
+	c = va_arg(aux, int);
+	*res += 1;
+	ft_putchar_fd(c, 1);
+}
+
+void	ft_conv_str(va_list aux, int *res)
+{
+	char *str;
+
+	str = va_arg(aux, char*);
+	if (str != NULL)
+	{
+		ft_putstr_fd(str, 1);
+		*res += ft_strlen(str);
+	}
+	else
+	{
+		*res += 6;
+		write(1, "(null)", 6);
+	}
+}
+
+/*int				ft_printchar(va_list aux)
 {
 	int c;
 
@@ -68,4 +94,4 @@ int			ft_printptr(va_list aux, int cse)
 	len = ft_strlen(tmp);
 	free(tmp);
 	return (len + ((cse == 1) ? 2 : -4));
-}
+}*/
