@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 14:42:22 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/25 13:05:30 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/25 17:15:35 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int		main(int ac, char **av)
 
 	res = 0;
 	ac = 1;
+
+	/*
 	printf("Test de Base\n");
 	res = printf("Alabama\n");
 	printf("Return value : %d\n", res);
@@ -87,7 +89,58 @@ int		main(int ac, char **av)
 	printf("Return value : %d\n", res);
 	res = ft_printf("Alabama is %X holobomo\n", (unsigned int)atoi(av[1]));
 	printf("Return value : %d\n", res);
-	printf("\n");
+	printf("\n");*/
 
+
+	printf("Test de C\n");
+	res = printf("%0-c\n", 'a');
+	printf("Return value : %d\n", res);
+	res = ft_printf("%0-c\n", 'a');
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
+
+	printf("Test de d with flag\n");
+	res = printf("%0*d\n", 5, 3);
+	printf("Return value : %d\n", res);
+	res = ft_printf("%0*d\n", 5, 3);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+/*
+	printf("Test de C\n");
+	res = printf("%-d\n", 123);
+	printf("Return value : %d\n", res);
+	res = ft_printf("%c\n", 'a');
+	ft_printf("Return value : %d\n", res);
+	ft_printf("\n");
+
+
+
+	printf("Test de S\n");
+	res = printf("%c\n", 'a');
+	printf("Return value : %d\n", res);
+	res = ft_printf("%c\n", 'a');
+	ft_printf("Return value : %d\n", res);
+	ft_printf("\n");
+
+	printf("Test\n");
+	res = printf("Alabama is %0d\n", 123);
+	printf("Return value : %d\n\n", res);
+
+	res = printf("Alabama is %06d\n", -123);
+	printf("Return value : %d\n\n", res);
+
+
+	res = printf("Alabama is %06d\n", 123);
+	printf("Return value : %d\n\n", res);
+
+
+	res = printf("Alabama is %07d\n", -123);
+	printf("Return value : %d\n\n", res);
+
+//	res = ft_printf("Alabama is %X holobomo\n", (unsigned int)atoi(av[1]));
+//	printf("Return value : %d\n", res);
+	printf("\n");
+*/
 	return (0);
 }
