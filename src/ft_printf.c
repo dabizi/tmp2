@@ -6,13 +6,14 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 18:10:07 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/23 19:34:18 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/25 15:36:51 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdarg.h>
 #include "../inc/ft_printf.h"
+#include "../libft/libft.h"
 
 int				ft_printchar(va_list aux)
 {
@@ -39,7 +40,6 @@ int			ft_printnbr(va_list aux)
 	nb = va_arg(aux, int);
 	ft_putnbr_fd(nb, 1);
 	return (ft_strlen(ft_itoa(nb)));
-//4294967295
 }
 
 int			ft_printnbru(va_list aux)
@@ -47,10 +47,8 @@ int			ft_printnbru(va_list aux)
 	unsigned int nb;
 
 	nb = va_arg(aux, unsigned int);
-	if (nb < 0)
-		nb = 429467295 - nb;
-	ft_putnbr_fd(nb, 1);
-	return (ft_strlen(ft_itoa(nb)));
+	ft_putnbru_fd(nb, 1);
+	return (ft_strlen(ft_itoau(nb)));
 }
 
 int			ft_printptr(va_list aux, int cse)
@@ -63,9 +61,9 @@ int			ft_printptr(va_list aux, int cse)
 		ft_putstr_fd("0x", 1);
 	ptr = va_arg(aux, long long);
 	if (cse == 1 || cse == 2)
-		tmp = ft_itoa_base(ptr, "0123456789abcdef");
+		tmp = ft_itoa_base(ptr, MIN);
 	else
-		tmp = ft_itoa_base(ptr, "0123456789ABCDEF");
+		tmp = ft_itoa_base(ptr, CAP);
 	if (cse != 1)
 		ft_putstr_fd(tmp + 4, 1);
 	else
@@ -75,12 +73,12 @@ int			ft_printptr(va_list aux, int cse)
 	return (len + ((cse == 1) ? 2 : -4));
 }
 
-static int			ft_switch(char c, va_list aux)
+static int			ft_switch(char *str, va_list aux)
 {
 	int nb;
-//	d = va_arg(aux, int)
-//	va_copy();
+	char c;
 
+	c = str[0];
 	nb = 0;
 	if (c =='c')
 		nb += ft_printchar(aux);
@@ -106,24 +104,59 @@ static int			ft_switch(char c, va_list aux)
 	return (nb);
 }
 
+t_printf			*ft_newsegment(int i)
+{
+	t_printf	*seg;
+
+	if (!(seg = malloc(sizeof(t_printf))))
+		return (0);
+	seg->i = 0;
+	seg->len = 0;
+	seg->space = 0;
+	seg->zero = 0;
+	return (seg);
+}
+
+int					ft_abort(t_printf *seg, char *str)
+{
+	if (seg)
+		free(seg);
+	if (str)
+		free(str);
+	return (-1);
+}
+
+int					ft_getsegment(char *str, va_list aux, int i)
+{
+	t_printf	*seg;
+	char		c;
+	int			size;
+
+	size = 0;
+	if (!(seg = ft_newsegment(i)))
+		return (-1);
+	if (size <= 0 || !(str = ft_switch(str, aux)))
+		return (ft_abort(seg, NULL));
+	return (size);
+}
+
 int					ft_printf(const char *str, ...)
 {
 	va_list		aux;
-	int			end;
+	int			size;
 	int			i;
 	t_list		t_flags;
 	int			res;
 
-	res = 0;
 	i = 0;
-	end = 0;
 	va_start(aux, str);
-	while (!end && str[i])
+	while (str[i])
 	{
 		if (str[i] == '%')
 		{
-			res += ft_switch(str[i + 1], aux);
-			i += 2;
+			size = ft_getsegment((char *)str + i, aux, i);
+			if (size > 0)
+				i += size;
 		}
 		else
 		{
@@ -133,5 +166,5 @@ int					ft_printf(const char *str, ...)
 		}
 	}
 	va_end(aux);
-	return (res);
+	return (ft_output(1));
 }
