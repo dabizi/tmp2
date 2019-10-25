@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 12:52:44 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/25 18:48:38 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/25 19:20:17 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ void	ft_parse_conv(int *i, const char *str, va_list aux, int *res);
 void	ft_conv_int(va_list aux, int *res);
 void	ft_conv_uint(va_list aux, int *res);
 void	ft_conv_adr(va_list aux, int *res, int cse);
+void	ft_conv_per(int *res);
 
 #endif
