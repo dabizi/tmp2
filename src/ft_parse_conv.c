@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 17:56:33 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/30 17:06:55 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/30 17:22:54 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ t_printf	*ft_parse_conv(int *i, const char *str, va_list aux, int *res)
 		str[*i] == 'x' ? ft_conv_adr(aux, res, MXADR) : 0;
 		str[*i] == 'X' ? ft_conv_adr(aux, res, XADR) : 0;
 		str[*i] == '%' ? ft_conv_per(res) : 0;
-		str[*i] == '-' ? t_flag->minus = 1 : 0;
 		str[*i] == '0' ? ft_flags_z(aux, res, t_flag) : 0;
+		str[*i] == '-' ? ft_flags_m(aux, res, t_flag) : 0;
 		str[*i] == '.' ? ft_flags_p(aux, res, t_flag) : 0;
 		str[*i] == '*' ? ft_flags_s(aux, res, t_flag) : 0;
 	}

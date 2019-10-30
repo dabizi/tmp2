@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 16:53:23 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/30 16:30:00 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/30 17:34:25 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_conv_str(va_list aux, int *res)
 
 void	ft_space(int nb, int cas, int *res)
 {
-	while (nb > 1)
+	while (nb > 0)
 	{
 		if (cas)
 			ft_putchar_fd('0', 1);
@@ -57,7 +57,16 @@ void	ft_conv_int(va_list aux, int *res, t_printf *t_flag)
 
 	nb = va_arg(aux, int);
 	if (t_flag->space > 0)
-		ft_space(t_flag->space, t_flag->zero, res);
+	{
+		if (nb < 0 && t_flag->zero > 0)
+		{
+			ft_putchar_fd('-', 1);
+			*res += 1;
+			nb = -nb;
+			t_flag->space = t_flag->space - 1;
+		}
+		ft_space(t_flag->space - ft_strlen(ft_itoa(nb)), t_flag->zero, res);
+	}
 	ft_putnbr_fd(nb, 1);
 	*res += ft_strlen(ft_itoa(nb));
 }
