@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 16:53:23 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/25 19:17:49 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/30 14:53:33 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_conv_adr(va_list aux, int *res, int cse)
 	if (cse == 1)
 		*res += 2;
 	ptr = va_arg(aux, long long);
-	tmp = (cse < 3) ? ft_itoa_base(ptr, CAP) : ft_itoa_base(ptr, MIN);
+	tmp = (cse == 2) ? ft_itoa_base(ptr, CAP) : ft_itoa_base(ptr, MIN);
 	ft_putstr_fd(tmp, 1);
 	*res += ft_strlen(tmp);
 	free(tmp);
