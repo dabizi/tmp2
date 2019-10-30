@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 16:53:23 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/30 22:04:22 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/30 22:40:08 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,14 +91,10 @@ void	ft_conv_int(va_list aux, int *res, t_printf *t_flag)
 		*res += 1;
 		t_flag->width = t_flag->width - 1;
 	}
-	if (t_flag->width >= t_flag->size || t_flag->width < 0)
-	{
-		if (nb > 0)
-		{
-			ft_putnbr_fd(nb, 1);
-			*res += ft_strlen(ft_itoa(nb));
-		}
-	}
+	if (t_flag->point == 1 && nb == 0)
+		return;
+	ft_putnbr_fd(nb, 1);
+	*res += ft_strlen(ft_itoa(nb));
 }
 
 void	ft_conv_uint(va_list aux, int *res, t_printf *t_flag)
