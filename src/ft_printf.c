@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 18:10:07 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/30 15:09:07 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/30 16:48:13 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,13 @@ int					ft_printf(const char *str, ...)
 	i = 0;
 	res = 0;
 	va_start(aux, str);
-
 	while (str[i])
 	{
 		if (str[i] == '%')
+		{
 			t_flag = ft_parse_conv(&i, str, aux, &res);
+			i -= 1;
+		}
 		else
 		{
 			ft_putchar_fd(str[i], 1);
@@ -36,6 +38,5 @@ int					ft_printf(const char *str, ...)
 		i++;
 	}
 	va_end(aux);
-	free(t_flag);
 	return (res);
 }
