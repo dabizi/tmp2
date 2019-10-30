@@ -6,14 +6,15 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 19:18:01 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/30 22:36:48 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/30 23:18:34 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-void	ft_conv_per(int *res)
+void	ft_conv_per(int *res, t_printf *t_flag)
 {
+	ft_space(t_flag->percent - 1, 1, res, t_flag);
 	ft_putchar_fd('%', 1);
 }
 
@@ -50,4 +51,5 @@ void	ft_flags_n(char *str, t_printf *t_flag)
 		else
 			t_flag->width = -1;
 	}
+	t_flag->percent = ft_atoi(str);
 }

@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 14:42:22 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/30 22:48:41 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/30 23:13:24 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		main(int ac, char **av)
 	ac = 1;
 
 
-/*
+
 	printf("Test\n");
 	res = printf("p0 % .3s\n", "cccc");
 	printf("Return value : %d\n\n", res);
@@ -170,7 +170,7 @@ int		main(int ac, char **av)
 	res = ft_printf("p7 %.4d\n", 100);
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
-*/
+
 
 	res = printf("p12 %.0d\n", 0);
 	printf("Return value : %d\n", res);
@@ -284,6 +284,18 @@ int		main(int ac, char **av)
 	res = printf("p36 %.0u\n", 0);
 	printf("Return value : %d\n", res);
 	res = ft_printf("p36 %.0u\n", 0);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
+	res = printf("Hello 42 school! %s", NULL);
+	printf("%010%");
+	printf("%u", 4294967295);
+	printf("%d\n", 2147483647);
+	printf("Return value : %d\n", res);
+	res = ft_printf("Hello 42 school! %s", NULL);
+	ft_printf("%010%");
+	ft_printf("%u", 4294967295);
+	ft_printf("%d\n", 2147483647);
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
 
