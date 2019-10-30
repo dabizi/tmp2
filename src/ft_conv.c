@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 16:53:23 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/30 21:23:04 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/30 21:49:44 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void	ft_space(int nb, int cas, int *res, t_printf *t_flag)
 		*res += 1;
 		nb--;
 	}
-//	printf("width vaut %d\n", t_flag->width);
 }
 
 void	ft_update(t_printf *t_flag, int size, int *res)
@@ -94,8 +93,11 @@ void	ft_conv_int(va_list aux, int *res, t_printf *t_flag)
 	}
 	if (t_flag->width >= t_flag->size || t_flag->width < 0)
 	{
-		ft_putnbr_fd(nb, 1);
-		*res += ft_strlen(ft_itoa(nb));
+		if (nb > 0)
+		{
+			ft_putnbr_fd(nb, 1);
+			*res += ft_strlen(ft_itoa(nb));
+		}
 	}
 }
 
