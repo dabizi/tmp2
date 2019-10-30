@@ -6,13 +6,27 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 16:53:23 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/30 17:34:25 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/30 19:21:38 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-void	ft_conv_char(va_list aux, int *res)
+void	ft_out(char *str, int *res, t_printf *t_flag)
+{
+	int i;
+
+	i = 0;
+	while (t_flag->width != 0 && str[i])
+	{
+		ft_putchar_fd(str[i], 1);
+		*res += 1;
+		t_flag->width -= 1;
+		i++;
+	}
+}
+
+void	ft_conv_char(va_list aux, int *res, t_printf *t_flag)
 {
 	char c;
 
@@ -21,21 +35,15 @@ void	ft_conv_char(va_list aux, int *res)
 	ft_putchar_fd(c, 1);
 }
 
-void	ft_conv_str(va_list aux, int *res)
+void	ft_conv_str(va_list aux, int *res, t_printf *t_flag)
 {
 	char *str;
 
 	str = va_arg(aux, char*);
-	if (str != NULL)
-	{
-		ft_putstr_fd(str, 1);
-		*res += ft_strlen(str);
-	}
+	if (str)
+		ft_out(str, res, t_flag);
 	else
-	{
-		*res += 6;
-		write(1, "(null)", 6);
-	}
+		ft_out("(null)", res, t_flag);
 }
 
 void	ft_space(int nb, int cas, int *res)
