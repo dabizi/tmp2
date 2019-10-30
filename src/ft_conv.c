@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 16:53:23 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/30 19:29:44 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/30 20:40:49 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ft_conv_char(va_list aux, int *res, t_printf *t_flag)
 {
 	char c;
 
+	t_flag->conv = 0;
 	c = va_arg(aux, int);
 	*res += 1;
 	ft_putchar_fd(c, 1);
@@ -39,6 +40,7 @@ void	ft_conv_str(va_list aux, int *res, t_printf *t_flag)
 {
 	char *str;
 
+	t_flag->conv = 0;
 	str = va_arg(aux, char*);
 	if (str)
 		ft_out(str, res, t_flag);
@@ -63,36 +65,44 @@ void	ft_conv_int(va_list aux, int *res, t_printf *t_flag)
 {
 	int nb;
 
+	t_flag->conv = 0;
 	nb = va_arg(aux, int);
+	if (t_flag->width > ft_strlen(ft_itoa(nb)))
+		ft_space(t_flag->width - ft_strlen(ft_itoa(nb)), 1, res);
 	if (t_flag->space > 0)
 	{
-		if (nb < 0 && t_flag->zero > 0)
+		if (t_flag->zero > 0)
 		{
-			ft_putchar_fd('-', 1);
-			*res += 1;
-			nb = -nb;
-			t_flag->space = t_flag->space - 1;
+			if (nb < 0)
+			{
+				ft_putchar_fd('-', 1);
+				*res += 1;
+				nb = -nb;
+				t_flag->space = t_flag->space - 1;
+			}
+			ft_space(t_flag->space - ft_strlen(ft_itoa(nb)), t_flag->zero, res);
 		}
-		ft_space(t_flag->space - ft_strlen(ft_itoa(nb)), t_flag->zero, res);
 	}
 	ft_putnbr_fd(nb, 1);
 	*res += ft_strlen(ft_itoa(nb));
 }
 
-void	ft_conv_uint(va_list aux, int *res)
+void	ft_conv_uint(va_list aux, int *res, t_printf *t_flag)
 {
 	unsigned int nb;
 
+	t_flag->conv = 0;
 	nb = va_arg(aux, unsigned int);
 	ft_putnbru_fd(nb, 1);
 	*res += ft_strlen(ft_itoau(nb));
 }
 
-void	ft_conv_adr(va_list aux, int *res, int cse)
+void	ft_conv_adr(va_list aux, int *res, int cse, t_printf *t_flag)
 {
 	long long ptr;
 	char *tmp;
 
+	t_flag->conv = 0;
 	(cse == 1) ? ft_putstr_fd("0x", 1) : 0;
 	if (cse == 1)
 	{
