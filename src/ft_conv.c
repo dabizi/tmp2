@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 16:53:23 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/30 22:40:08 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/30 22:58:24 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,9 @@ void	ft_conv_uint(va_list aux, int *res, t_printf *t_flag)
 
 	t_flag->conv = 0;
 	nb = va_arg(aux, unsigned int);
+	if (t_flag->point == 1 && nb == 0)
+		return;
+	ft_update(t_flag, ft_strlen(ft_itoa(nb)), res);
 	ft_putnbru_fd(nb, 1);
 	*res += ft_strlen(ft_itoau(nb));
 }
@@ -121,6 +124,8 @@ void	ft_conv_adr(va_list aux, int *res, int cse, t_printf *t_flag)
 	}
 	else
 		ptr = va_arg(aux, unsigned int);
+	if (t_flag->point == 1 && ptr == 0)
+		return;
 	ft_update(t_flag, ft_strlen(ft_itoa(ptr) + 1), res);
 	tmp = (cse == 2) ? ft_itoa_base(ptr, CAP) : ft_itoa_base(ptr, MIN);
 	ft_putstr_fd(tmp, 1);

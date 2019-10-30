@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 14:42:22 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/30 22:12:23 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/30 22:48:41 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		main(int ac, char **av)
 	ac = 1;
 
 
-	
+/*
 	printf("Test\n");
 	res = printf("p0 % .3s\n", "cccc");
 	printf("Return value : %d\n\n", res);
@@ -170,7 +170,7 @@ int		main(int ac, char **av)
 	res = ft_printf("p7 %.4d\n", 100);
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
-
+*/
 
 	res = printf("p12 %.0d\n", 0);
 	printf("Return value : %d\n", res);
@@ -232,7 +232,6 @@ int		main(int ac, char **av)
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
 
-
 	res = printf("p21 %.3x\n", 100);
 	printf("Return value : %d\n", res);
 	res = ft_printf("p21 %.3x\n", 100);
@@ -251,6 +250,43 @@ int		main(int ac, char **av)
 	res = ft_printf("p24 %.10x\n", 100);
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
+
+	res = printf("p20 %.0x\n", 0);
+	printf("Return value : %d\n", res);
+	res = ft_printf("p20 %.0x\n", 0);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
 	
+	res = printf("p28 %.0x\n", 0);
+	printf("Return value : %d\n", res);
+	res = ft_printf("p28 %.0x\n", 0);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+	
+	res = printf("p31 %.4u\n", 100);
+	printf("Return value : %d\n", res);
+	res = ft_printf("p31 %.4u\n", 100);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
+	res = printf("p32 %.10u\n", 100);
+	printf("Return value : %d\n", res);
+	res = ft_printf("p32 %.10u\n", 100);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+	
+	res = printf("p33 %.50u\n", 100);
+	printf("Return value : %d\n", res);
+	res = ft_printf("p33 %.50u\n", 100);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+	
+	res = printf("p36 %.0u\n", 0);
+	printf("Return value : %d\n", res);
+	res = ft_printf("p36 %.0u\n", 0);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
+
 	return (0);
 }
