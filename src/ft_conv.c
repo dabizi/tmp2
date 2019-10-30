@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 16:53:23 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/30 20:40:49 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/30 21:23:04 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,35 @@ void	ft_conv_str(va_list aux, int *res, t_printf *t_flag)
 		ft_out("(null)", res, t_flag);
 }
 
-void	ft_space(int nb, int cas, int *res)
+void	ft_space(int nb, int cas, int *res, t_printf *t_flag)
 {
 	while (nb > 0)
 	{
 		if (cas)
+		{
 			ft_putchar_fd('0', 1);
+			t_flag->width -= 1;
+		}
 		else
+		{
 			ft_putchar_fd(' ', 1);
+			t_flag->width -= 1;
+		}
 		*res += 1;
 		nb--;
 	}
+//	printf("width vaut %d\n", t_flag->width);
 }
+
+void	ft_update(t_printf *t_flag, int size, int *res)
+{
+	t_flag->size = size;
+	if (t_flag->width > size)
+		ft_space(t_flag->width - size, 1, res, t_flag);
+	if (t_flag->space > 0)
+		ft_space(t_flag->space - size, t_flag->zero, res, t_flag);
+}
+
 
 void	ft_conv_int(va_list aux, int *res, t_printf *t_flag)
 {
@@ -67,24 +84,19 @@ void	ft_conv_int(va_list aux, int *res, t_printf *t_flag)
 
 	t_flag->conv = 0;
 	nb = va_arg(aux, int);
-	if (t_flag->width > ft_strlen(ft_itoa(nb)))
-		ft_space(t_flag->width - ft_strlen(ft_itoa(nb)), 1, res);
-	if (t_flag->space > 0)
+	ft_update(t_flag, ft_strlen(ft_itoa(nb)), res);
+	if (t_flag->zero > 0 && nb < 0)
 	{
-		if (t_flag->zero > 0)
-		{
-			if (nb < 0)
-			{
-				ft_putchar_fd('-', 1);
-				*res += 1;
-				nb = -nb;
-				t_flag->space = t_flag->space - 1;
-			}
-			ft_space(t_flag->space - ft_strlen(ft_itoa(nb)), t_flag->zero, res);
-		}
+		nb = -nb;
+		ft_putchar_fd('-', 1);
+		*res += 1;
+		t_flag->width = t_flag->width - 1;
 	}
-	ft_putnbr_fd(nb, 1);
-	*res += ft_strlen(ft_itoa(nb));
+	if (t_flag->width >= t_flag->size || t_flag->width < 0)
+	{
+		ft_putnbr_fd(nb, 1);
+		*res += ft_strlen(ft_itoa(nb));
+	}
 }
 
 void	ft_conv_uint(va_list aux, int *res, t_printf *t_flag)

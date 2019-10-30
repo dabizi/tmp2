@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 19:18:01 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/30 18:49:13 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/30 21:09:05 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void	ft_flags_s(va_list aux, int *res, t_printf *t_flag)
 
 void	ft_flags_n(char *str, t_printf *t_flag)
 {
-	if (t_flag->space == 0)
-		t_flag->space = ft_atoi(str);
+	//if (t_flag->space == 0)
+	//	t_flag->space = ft_atoi(str);
 	if (t_flag->width == 0)
 		t_flag->width = ft_atoi(str);
 }

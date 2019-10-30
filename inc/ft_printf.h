@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 12:52:44 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/30 20:44:17 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/30 20:52:40 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct	s_printf
 	int		zero;
 	int		width;
 	int		conv;
+	int		size;
 }				t_printf;
 
 int				ft_printf(const char *str, ...);
