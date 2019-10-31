@@ -6,7 +6,7 @@
 #    By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/17 14:34:55 by jgrandne          #+#    #+#              #
-#    Updated: 2019/10/30 17:41:40 by jgrandne         ###   ########.fr        #
+#    Updated: 2019/10/31 17:55:24 by jgrandne         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,10 @@ OBJLIB_PATH = ./obj
 
 SRC_NAME =	ft_printf.c \
 			ft_parse_conv.c \
-			ft_conv.c \
-			ft_flags.c
+			ft_conv_nb.c \
+			ft_conv_addr.c \
+			ft_flags.c \
+			ft_conv_char.c
 #ft_apply_flags.c\
 			ft_check.c\
 			ft_dispatcher.c\

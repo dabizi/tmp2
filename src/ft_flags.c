@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 19:18:01 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/31 15:56:10 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/31 17:25:58 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,13 @@ void	ft_flags_m(va_list aux, int *res, t_printf *t_flag)
 	t_flag->fl_min = 1;
 }
 
-void	ft_flags_z(va_list aux, int *res, t_printf *t_flag)
+void	ft_flags_z(va_list aux, int *res, t_printf *t_flag, int *i)
 {
-	if (t_flag->width != 0)
+//	if (t_flag->width != 0)
 		t_flag->zero = 1;
-	else
-		t_flag->width = -1;
+//	else
+//		t_flag->width = -1;
+	*i += 1;
 }
 
 void	ft_flags_p(va_list aux, int *res, t_printf *t_flag)
@@ -43,16 +44,21 @@ void	ft_flags_s(va_list aux, int *res, t_printf *t_flag)
 	t_flag->space_before = va_arg(aux, int);
 }
 
-void	ft_flags_n(char *str, t_printf *t_flag)
+void	ft_flags_n(char *str, t_printf *t_flag, int *i)
 {
-	if (t_flag->fl_poi)
+	if (t_flag->width == -1)
 	{
 		if (ft_atoi(str) > 1)
 			t_flag->width = ft_atoi(str);
 	}
-	else
+	else if (t_flag->fl_poi)
+	{
 		if (ft_atoi(str) > 1)
-			t_flag->percent = ft_atoi(str);
+				t_flag->size = ft_atoi(str);
+	}
+	if (ft_atoi(str) > 1)
+		t_flag->percent = ft_atoi(str);
+	*i += ft_strlen(ft_itoa(ft_atoi(str)));
 /*
 	if (t_flag->width == 0)
 	{

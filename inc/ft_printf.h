@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 12:52:44 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/31 15:39:34 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/31 17:34:52 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,6 @@
 
 # define CAP "0123456789ABCDEF"
 # define MIN "0123456789abcdef"
-# define PTR 1
-# define XADR 2
-# define MXADR 3
 
 typedef struct	s_printf
 {
@@ -34,6 +31,7 @@ typedef struct	s_printf
 	int		space_after;
 	int		zero;
 	int		width;
+	int		size;
 	int		conv;
 	int		percent;
 }				t_printf;
@@ -48,13 +46,16 @@ void			ft_conv_uint(va_list aux, int *res, t_printf *t_flag);
 void			ft_conv_adr(va_list aux, int *res, int cse, t_printf *t_flag);
 void			ft_conv_per(int *res, t_printf *t_flag);
 void			ft_flags_m(va_list aux, int *res, t_printf *t_flag);
-void			ft_flags_n(char *str, t_printf *t_flag);
+void			ft_flags_n(char *str, t_printf *t_flag, int *i);
 void			ft_flags_p(va_list aux, int *res, t_printf *t_flag);
 void			ft_flags_s(va_list aux, int *res, t_printf *t_flag);
-void			ft_flags_z(va_list aux, int *res, t_printf *t_flag);
+void			ft_flags_z(va_list aux, int *res, t_printf *t_flag, int *i);
 int				ft_is_flag(char c, t_printf *t_flag, int *i);
 void	ft_space(int nb, int cas, int *res, t_printf *t_flag);
 
 
+void	ft_conv_padr(va_list aux, int *res, t_printf *t_flag);
+void	ft_conv_xadr(va_list aux, int *res, t_printf *t_flag);
+void	ft_conv_majxadr(va_list aux, int *res, t_printf *t_flag);
 
 #endif

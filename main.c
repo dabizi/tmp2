@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 14:42:22 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/31 15:47:06 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/31 18:32:50 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,12 @@ int		main(int ac, char **av)
 	ac = 1;
 
 
-/*
 	printf("Test\n");
 	res = printf("p0 % .3s\n", "cccc");
 	printf("Return value : %d\n\n", res);
 	res = ft_printf("p0 % .3s\n", "cccc");
 	printf("Return value : %d\n\n", res);
 	ft_printf("\n");
-
 
 	res = printf("p15 %.4i\n", 100);
 	printf("Return value : %d\n", res);
@@ -49,6 +47,7 @@ int		main(int ac, char **av)
 	res = ft_printf("%0*d\n", 5, 3);
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
+
 
 	printf("Test de Base\n");
 	res = printf("Alabama\n");
@@ -149,8 +148,10 @@ int		main(int ac, char **av)
 	ft_printf("Return value : %d\n", res);
 	ft_printf("\n");
 
-*/
-	printf("Test\n");
+
+
+
+printf("Test\n");
 	res = printf("p0 % .3s\n", "cccc");
 	printf("Return value : %d\n\n", res);
 	res = ft_printf("p0 % .3s\n", "cccc");
@@ -319,13 +320,26 @@ int		main(int ac, char **av)
 	res = ft_printf("%010x\n", -20);
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
-	
+
+
+
+
+
+	printf("Last\n\n");
+
 	res = printf("%10x\n", 20);
 	printf("Return value : %d\n", res);
 	res = ft_printf("%10x\n", 20);
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
-	
+
+
+	res = printf("%10.x\n", -20);
+	printf("Return value : %d\n", res);
+	res = ft_printf("%10.2x\n", -20);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
 	res = printf("%10.2x\n", -20);
 	printf("Return value : %d\n", res);
 	res = ft_printf("%10.2x\n", -20);
@@ -351,15 +365,14 @@ int		main(int ac, char **av)
 	ft_printf("\n");
 
 
-	res = printf("%.12d\n", -8425); //Donne "       -8425"
+	res = printf("%12.6d\n", -8425); //Donne "       -8425"
 	printf("Return value : %d\n", res);
-	res = ft_printf("%.12d\n", -8425); //Donne "       -8425"
+	res = ft_printf("%12.6d\n", -8425); //Donne "       -8425"
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
 
 //	printf("%.1x\n", 500);
 //	printf("%*.*x\n", 50, 10, 2);
-
 
 
 	return (0);
