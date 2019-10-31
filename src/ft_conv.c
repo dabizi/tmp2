@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 16:53:23 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/30 23:12:08 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/31 15:39:21 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,13 +69,13 @@ void	ft_space(int nb, int cas, int *res, t_printf *t_flag)
 
 void	ft_update(t_printf *t_flag, int size, int *res)
 {
-	t_flag->size = size;
 	if (t_flag->width > size)
 		ft_space(t_flag->width - size, 1, res, t_flag);
-	if (t_flag->space > 0)
-		ft_space(t_flag->space - size, t_flag->zero, res, t_flag);
+	else if (t_flag->percent > size)
+		ft_space(t_flag->percent - size, 1, res, t_flag);
+	if (t_flag->space_before > 0)
+		ft_space(t_flag->space_before - size, t_flag->zero, res, t_flag);
 }
-
 
 void	ft_conv_int(va_list aux, int *res, t_printf *t_flag)
 {
@@ -91,7 +91,7 @@ void	ft_conv_int(va_list aux, int *res, t_printf *t_flag)
 		*res += 1;
 		t_flag->width = t_flag->width - 1;
 	}
-	if (t_flag->point == 1 && nb == 0)
+	if (t_flag->fl_poi && nb == 0)
 		return;
 	ft_putnbr_fd(nb, 1);
 	*res += ft_strlen(ft_itoa(nb));
@@ -103,7 +103,7 @@ void	ft_conv_uint(va_list aux, int *res, t_printf *t_flag)
 
 	t_flag->conv = 0;
 	nb = va_arg(aux, unsigned int);
-	if (t_flag->point == 1 && nb == 0)
+	if (t_flag->fl_poi && nb == 0)
 		return;
 	ft_update(t_flag, ft_strlen(ft_itoa(nb)), res);
 	ft_putnbru_fd(nb, 1);
@@ -124,9 +124,9 @@ void	ft_conv_adr(va_list aux, int *res, int cse, t_printf *t_flag)
 	}
 	else
 		ptr = va_arg(aux, unsigned int);
-	if (t_flag->point == 1 && ptr == 0)
+	if (t_flag->fl_poi && ptr == 0)
 		return;
-	ft_update(t_flag, ft_strlen(ft_itoa(ptr) + 1), res);
+	ft_update(t_flag, ft_strlen(ft_itoa(ptr)), res);
 	tmp = (cse == 2) ? ft_itoa_base(ptr, CAP) : ft_itoa_base(ptr, MIN);
 	ft_putstr_fd(tmp, 1);
 	*res += ft_strlen(tmp);

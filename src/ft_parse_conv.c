@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 17:56:33 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/30 23:17:22 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/31 15:31:45 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,15 @@ t_printf	*ft_init_struct(void)
 
 	if (!(t_flag = malloc(sizeof(t_printf))))
 		return (NULL);
-	t_flag->minus = 0;
-	t_flag->space = 0;
+	t_flag->fl_min = 0;
+	t_flag->fl_zer = 0;
+	t_flag->fl_poi = 0;
+	t_flag->fl_sta = 0;
+	t_flag->space_before = 0;
+	t_flag->space_after = 0;
 	t_flag->zero = 0;
 	t_flag->width = -1;
 	t_flag->conv = 1;
-	t_flag->size = 0;
-	t_flag->point = 0;
 	t_flag->percent = 0;
 	return (t_flag);
 }
