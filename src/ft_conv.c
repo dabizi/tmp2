@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 16:53:23 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/31 15:39:21 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/10/31 15:48:42 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ void	ft_conv_adr(va_list aux, int *res, int cse, t_printf *t_flag)
 		ptr = va_arg(aux, unsigned int);
 	if (t_flag->fl_poi && ptr == 0)
 		return;
-	ft_update(t_flag, ft_strlen(ft_itoa(ptr)), res);
+	ft_update(t_flag, ft_strlen(ft_itoa(ptr) + 1), res);
 	tmp = (cse == 2) ? ft_itoa_base(ptr, CAP) : ft_itoa_base(ptr, MIN);
 	ft_putstr_fd(tmp, 1);
 	*res += ft_strlen(tmp);
