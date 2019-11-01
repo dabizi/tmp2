@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 17:50:45 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/01 15:51:26 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/01 15:59:45 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,16 +54,6 @@ void	ft_handle_space(int *res, t_printf *t_flag, int size, int neg)
 		ft_space(t_flag->width - t_flag->size -1, 0, res, t_flag) ;
 		return ;
 	}
-
-//TODO space
-//width -> 
-
-
-
-
-//zero
-
-
 }
 
 void	ft_space(int nb, int cas, int *res, t_printf *t_flag)

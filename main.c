@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 14:42:22 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/01 15:45:56 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/01 16:29:05 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,7 @@ printf("Test\n");
 	res = ft_printf("p3 %.4s\n", NULL);
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
-*/
+
 
 	res = printf("p19 %.3x\n", 100);
 	printf("Return value : %d\n", res);
@@ -227,7 +227,7 @@ printf("Test\n");
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
 
-
+*/
 
 	res = printf("%010x\n", 0);
 	printf("Return value : %d\n", res);
@@ -285,6 +285,70 @@ printf("Test\n");
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
 
+	res = printf("%*.*x\n", 50, 10, 2);
+	printf("Return value : %d\n", res);
+	res = ft_printf("%*.*x\n", 50, 10, 2);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
+
+	res = printf("%");
+	printf("Return value : %d\n", res);
+	res = ft_printf("%");
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
+	res = printf("%40.50d\n", 50);
+	printf("Return value : %d\n", res);
+	res = ft_printf("%40.50d\n", 50);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
+	res = printf("%d\n", -589);
+	printf("Return value : %d\n", res);
+	res = ft_printf("%d\n", -589);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
+	res = printf("%-4d\n", -2464);
+	printf("Return value : %d\n", res);
+	res = ft_printf("%-4d\n", -2464);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+    
+	res = printf("%.5d\n", -2372);
+	printf("Return value : %d\n", res);
+	res = ft_printf("%.5d\n", -2372);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+	
+
+	res = printf("%p\n", NULL);
+	printf("Return value : %d\n", res);
+	res = ft_printf("%p\n", NULL);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+	
+	res = printf("%015p\n", NULL);
+	printf("Return value : %d\n", res);
+	res = ft_printf("%015p\n", NULL);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+	
+
+	res = printf("%15p\n", NULL);
+	printf("Return value : %d\n", res);
+	res = ft_printf("%15p\n", NULL);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
+	res = printf("%-15p\n", NULL);
+	printf("Return value : %d\n", res);
+	res = ft_printf("%-15p\n", NULL);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
+/*
 	
 	printf("Test de d with flag\n");
 	res = printf("%0*d\n", 5, 3);
@@ -401,7 +465,7 @@ printf("Test\n");
 	ft_printf("\n");
 //	printf("%.1x\n", 500);
 //	printf("%*.*x\n", 50, 10, 2);
-
+*/
 
 	return (0);
 }
