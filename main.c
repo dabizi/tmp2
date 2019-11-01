@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 14:42:22 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/01 15:11:18 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/01 15:45:56 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,7 +190,7 @@ printf("Test\n");
 	res = ft_printf("p28 %.0x\n", 0);
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
-/*	
+
 	res = printf("p31 %.4u\n", 100);
 	printf("Return value : %d\n", res);
 	res = ft_printf("p31 %.4u\n", 100);
@@ -388,15 +388,20 @@ printf("Test\n");
 	ft_printf("\n");
 
 
+	res = printf("%d\n", -2147483648); //Donne "       -8425"
+	printf("Return value : %d\n", res);
+	res = ft_printf("%d\n", -2147483648); //Donne "       -8425"
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
 	res = printf("%12.6d\n", -8425); //Donne "       -8425"
 	printf("Return value : %d\n", res);
 	res = ft_printf("%12.6d\n", -8425); //Donne "       -8425"
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
-
 //	printf("%.1x\n", 500);
 //	printf("%*.*x\n", 50, 10, 2);
 
-*/
+
 	return (0);
 }

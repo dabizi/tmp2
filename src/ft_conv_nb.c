@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 17:50:45 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/01 15:19:09 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/01 15:51:26 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,11 +100,11 @@ void	ft_conv_int(va_list aux, int *res, t_printf *t_flag)
 
 //	printf("\nnb vaut %d\n", nb);
 
-	if (nb < 0)
+	if (nb < 0 && t_flag->width != -1)
 	{
 		nb = -nb;
 		write(1, "-", 1);
-		*res += 1;
+		//*res += 1;
 		//t_flag->width = t_flag->width - 1;
 	}
 	if (t_flag->fl_poi && nb == 0)
