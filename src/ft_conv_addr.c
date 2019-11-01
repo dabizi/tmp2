@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 17:37:03 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/01 17:06:47 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/01 18:38:21 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_handle_spaceadd(int *res, t_printf *t_flag, int size, int neg)
 		if (t_flag->space_after)
 		{
 		
-			printf("1");
+//			printf("1");
 		/*	printf("\n\nPoint vaut : %d\n", t_flag->fl_poi);
 			printf("Siz vaut : %d\n", t_flag->size);
 			printf("Width vaut : %d\n", t_flag->width);
@@ -45,14 +45,14 @@ void	ft_handle_spaceadd(int *res, t_printf *t_flag, int size, int neg)
 	//cas avec space ou zero mais sans "."
 	if (t_flag->width > 0 && t_flag->size == -1 && t_flag->fl_poi)
 	{
-		printf("2");
+//		printf("2");
 	//	printf("size : %d\n", size);
 		ft_space(t_flag->width - size, !t_flag->zero, res, t_flag);
 		return ;
 	}
 	if (t_flag->width > 0 && t_flag->size == -1 && !t_flag->fl_poi)
 	{
-		printf("3");
+//		printf("3");
 	//	printf("size : %d\n", size);
 		ft_space(t_flag->width - size, t_flag->zero, res, t_flag);
 		return ;
@@ -60,7 +60,7 @@ void	ft_handle_spaceadd(int *res, t_printf *t_flag, int size, int neg)
 	if (t_flag->width > 0 && t_flag->size > -1)
 	{
 	
-		printf("4");
+//		printf("4");
 	/*	printf("\n\nPoint vaut : %d\n", t_flag->fl_poi);
 		printf("Siz vaut : %d\n", t_flag->size);
 		printf("Width vaut : %d\n", t_flag->width);

@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 19:18:01 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/01 16:41:02 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/01 19:20:26 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_conv_per(int *res, t_printf *t_flag)
 {
+	t_flag->conv = 0;
 	//printf("percent vaut %d\n", t_flag->percent);
 	ft_space(t_flag->percent - 1, 1, res, t_flag);
 	ft_putchar_fd('%', 1);
