@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 14:42:22 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/01 16:29:05 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/01 17:01:41 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int		main(int ac, char **av)
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
 
-*/
-/*
+
+
 	printf("Test de d1 with flag\n");
 	res = printf("%*d\n", 5, 3);
 	printf("Return value : %d\n", res);
@@ -49,8 +49,7 @@ int		main(int ac, char **av)
 	res = ft_printf("%0*d\n", 5, 3);
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
-*/
-/*
+
 	printf("Test de Base\n");
 	res = printf("Alabama\n");
 	printf("Return value : %d\n", res);
@@ -227,7 +226,7 @@ printf("Test\n");
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
 
-*/
+
 
 	res = printf("%010x\n", 0);
 	printf("Return value : %d\n", res);
@@ -273,6 +272,13 @@ printf("Test\n");
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
 	
+
+
+
+//TODO STOPPED HERE
+
+
+
 	res = printf("%-10x\n", 50);
 	printf("Return value : %d\n", res);
 	res = ft_printf("%-10x\n", 50);
@@ -284,6 +290,8 @@ printf("Test\n");
 	res = ft_printf("%-15x\n", 0);
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
+
+	*/
 
 	res = printf("%*.*x\n", 50, 10, 2);
 	printf("Return value : %d\n", res);
