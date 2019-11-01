@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 17:50:45 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/01 19:21:49 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/01 19:33:57 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,8 @@ void	ft_conv_int(va_list aux, int *res, t_printf *t_flag)
 		nb = -nb;
 		write(1, "-", 1);
 	}
-/*	printf("\n\nPoint vaut : %d\n", t_flag->fl_poi);
+	/*
+	printf("\n\nPoint vaut : %d\n", t_flag->fl_poi);
 	printf("Siz vaut : %d\n", t_flag->size);
 	printf("Width vaut : %d\n", t_flag->width);
 	printf("Sta vaut : %d\n", t_flag->fl_sta);
@@ -95,9 +96,17 @@ void	ft_conv_int(va_list aux, int *res, t_printf *t_flag)
 	if (t_flag->fl_poi && t_flag->width > ft_strlen(ft_itoa(nb)))
 	{
 		if (t_flag->size > t_flag->width)
+		{
+//			printf("case 1");
 				ft_space(t_flag->size - ft_strlen(ft_itoa(nb)), 1, res, t_flag);
+		
+		}
 		else
-				ft_space(t_flag->width - 1- ft_strlen(ft_itoa(nb)), 1, res, t_flag);
+		{
+//			printf("case 2");
+				ft_space(t_flag->width - ft_strlen(ft_itoa(nb)), 1, res, t_flag);
+
+		}
 	}
 	if (t_flag->fl_poi && t_flag->width != - 1 && t_flag->size > t_flag->width - size_nb)
 		ft_space(t_flag->width + 1 - t_flag->size, 1, res, t_flag);
