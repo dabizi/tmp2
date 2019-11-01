@@ -6,21 +6,65 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 17:37:03 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/31 18:36:21 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/01 15:22:36 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
 
-void	ft_handle_spaceadd(int *res, t_printf *t_flag, int size)
+void	ft_handle_spaceadd(int *res, t_printf *t_flag, int size, int neg)
 {
 
+//	printf("Point vaut : %d\n", t_flag->fl_poi);
 //	printf("Siz vaut : %d\n", t_flag->size);
 //	printf("Width vaut : %d\n", t_flag->width);
 //	printf("Sta vaut : %d\n", t_flag->fl_sta);
 //	printf("Space vaut : %d\n", t_flag->space_before);
 
+	if (t_flag->fl_sta)
+	{
+	//	printf("1");
+
+		ft_space(t_flag->space_before - size, t_flag->zero, res, t_flag);
+	
+	}
+
+	//cas sans space ou 0
+	if (t_flag->width < 0)
+		return ;
+	//cas avec space ou zero mais sans "."
+	if (t_flag->width > 0 && t_flag->size == -1 && t_flag->fl_poi)
+	{
+	//	printf("2");
+	//	printf("size : %d\n", size);
+		ft_space(t_flag->width - size, !t_flag->zero, res, t_flag);
+		return ;
+	}
+	if (t_flag->width > 0 && t_flag->size == -1 && !t_flag->fl_poi)
+	{
+	//	printf("3");
+	//	printf("size : %d\n", size);
+		ft_space(t_flag->width - size, 0, res, t_flag);
+		return ;
+	}
+	if (t_flag->width > 0 && t_flag->size > -1)
+	{
+	//	printf("4");
+		(neg) ? ft_space(t_flag->width - t_flag->size, 0, res, t_flag) :
+		ft_space(t_flag->width - t_flag->size -1, 0, res, t_flag) ;
+		return ;
+	}
+
+/*
+	printf("\n\nSiz vaut : %d\n", t_flag->size);
+	printf("Width vaut : %d\n", t_flag->width);
+	printf("Sta vaut : %d\n", t_flag->fl_sta);
+	printf("Space vaut : %d\n\n", t_flag->space_before);
+
+
+*/
+/*
 	if (t_flag->fl_sta)
 	{
 		ft_space(t_flag->space_before - size, t_flag->zero, res, t_flag);
@@ -40,6 +84,7 @@ void	ft_handle_spaceadd(int *res, t_printf *t_flag, int size)
 		ft_space(t_flag->width - t_flag->size, !t_flag->zero, res, t_flag);
 		return ;
 	}
+	*/
 }
 
 
@@ -56,7 +101,7 @@ void	ft_conv_padr(va_list aux, int *res, t_printf *t_flag)
 	if (t_flag->fl_poi && ptr == 0)
 		return;
 	tmp = ft_itoa_base(ptr, MIN);
-	ft_space(t_flag->width - t_flag->size, t_flag->zero, res, t_flag);
+	ft_handle_spaceadd(res, t_flag, ft_strlen(tmp), 0);
 	ft_putstr_fd(tmp, 1);
 	*res += ft_strlen(tmp);
 	free(tmp);
@@ -71,10 +116,8 @@ void	ft_conv_xadr(va_list aux, int *res, t_printf *t_flag)
 	ptr = va_arg(aux, unsigned int);
 	if (t_flag->fl_poi && ptr == 0)
 		return;
-	ft_handle_spaceadd(res, t_flag, ptr);
 	tmp = ft_itoa_base(ptr, MIN);
-	//ft_space(t_flag->width - t_flag->size, t_flag->zero, res, t_flag);
-	
+	ft_handle_spaceadd(res, t_flag, ft_strlen(tmp), 0);
 	ft_putstr_fd(tmp, 1);
 	*res += ft_strlen(tmp);
 	free(tmp);
@@ -90,7 +133,7 @@ void	ft_conv_majxadr(va_list aux, int *res, t_printf *t_flag)
 	if (t_flag->fl_poi && ptr == 0)
 		return;
 	tmp = ft_itoa_base(ptr, CAP);
-	ft_space(t_flag->width - t_flag->size, t_flag->zero, res, t_flag);
+	ft_handle_spaceadd(res, t_flag, ft_strlen(tmp), 0);
 	ft_putstr_fd(tmp, 1);
 	*res += ft_strlen(tmp);
 	free(tmp);

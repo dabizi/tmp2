@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 15:14:21 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/14 16:37:34 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/01 14:51:57 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ size_t		ft_strlen(const char *str)
 {
 	int i;
 
+	if (!str)
+		return (0);
 	i = 0;
 	while (str[i] != '\0')
 		i++;
