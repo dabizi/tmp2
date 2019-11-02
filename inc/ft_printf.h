@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 12:52:44 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/10/31 17:34:52 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/02 19:17:54 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct	s_printf
 	int		fl_sta;
 	int		space_before;
 	int		space_after;
-	int		zero;
+	int		zero_before;
 	int		width;
 	int		size;
 	int		conv;

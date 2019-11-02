@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 17:56:33 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/01 16:36:41 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/02 20:25:39 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_printf	*ft_init_struct(void)
 	t_flag->fl_sta = 0;
 	t_flag->space_before = 0;
 	t_flag->space_after = 0;
-	t_flag->zero = 0;
+	t_flag->zero_before = 0;
 	t_flag->width = -1;
 	t_flag->conv = 1;
 	t_flag->percent = 0;

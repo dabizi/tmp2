@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 14:42:22 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/01 19:24:40 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/02 20:55:49 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,55 @@ int		main(int ac, char **av)
 
 	res = 0;
 	ac = 1;
+
+	res = printf("%*d\n", 12, -123);
+	printf("%d\n", res);
+	res = ft_printf("%*d\n", 12, -123);
+	printf("%d\n\n", res);
+	
+	res = printf("%-20.010d\n", -123);
+	printf("%d\n", res);
+	res = ft_printf("%-20.010d\n", -123);
+	printf("%d\n\n", res);
+	
+	res = printf("%-20.010d\n", 123);
+	printf("%d\n", res);
+	res = ft_printf("%-20.010d\n", 123);
+	printf("%d\n\n", res);
+/*	
+	res = printf("%20.010d\n", -123);
+	printf("%d\n", res);
+	res = ft_printf("%20.010d\n", -123);
+	printf("%d\n\n", res);
+	
+	res = printf("%-20.010d\n", 123);
+	printf("%d\n", res);
+	res = ft_printf("%-20.010d\n", 123);
+	printf("%d\n\n", res);
+	
+	res = printf("%20.010d\n", 123);
+	printf("%d\n", res);
+	res = ft_printf("%20.010d\n", 123);
+	printf("%d\n", res);
+
+
+
+	res = printf("%20.015d\n", -123);
+	printf("%d\n", res);
+
+	res = printf("%020.015d\n", -123);
+	printf("%d\n", res);
+
+	res = printf("%020.15d\n", -123);
+	printf("%d\n", res);
+*/
+
+/*
+	res = ft_printf("%*d\n", 12, -123);
+	printf("%d\n", res);
+	res = ft_printf("%20.010d\n", 123);
+	printf("%d\n", res);
+*/
 /*
 
 	printf("Test\n");
@@ -298,6 +347,7 @@ printf("Test\n");
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
 */
+/*
 	res = printf("%40.50d\n", 50);
 	printf("Return value : %d\n", res);
 	res = ft_printf("%40.50d\n", 50);
@@ -321,8 +371,121 @@ printf("Test\n");
 	res = ft_printf("%.5d\n", -2372);
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
+*/
+/*
+	res = printf("ret = %d\n", printf("%%p::[%010d]\n", -8473));
+	printf("Return value : %d\n", res);
+	res = ft_printf("ret = %d\n", ft_printf("%%p::[%010d]\n", -8473));
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+ 
+	res = printf("ret = %d\n", printf("%%p::[%10d]\n", -8473));
+	printf("Return value : %d\n", res);
+	res = ft_printf("ret = %d\n", ft_printf("%%p::[%10d]\n", -8473));
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
+	res = printf("ret = %d\n", printf("%%p::[%.5d]\n", -8473));
+	printf("Return value : %d\n", res);
+	res = ft_printf("ret = %d\n", ft_printf("%%p::[%.5d]\n", -8473));
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
+	res = printf("ret = %d\n", printf("%%p::[%01.1d]\n", -8473));
+	printf("Return value : %d\n", res);
+	res = ft_printf("ret = %d\n", ft_printf("%%p::[%01.1d]\n", -8473));
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+  */ 
 
 /*
+   //Good
+	res = printf("ret = %d\n", printf("%%p::[%010.1d]\n", -8473));
+	printf("Return value : %d\n", res);
+	res = ft_printf("ret = %d\n", ft_printf("%%p::[%010.1d]\n", -8473));
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
+	res = printf("ret = %d\n", printf("%%p::[%01.50d]\n", -8473));
+	printf("Return value : %d\n", res);
+	res = ft_printf("ret = %d\n", ft_printf("%%p::[%01.50d]\n", -8473));
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
+	res = printf("ret = %d\n", printf("%%p::[%1.50d]\n", -8473));
+	printf("Return value : %d\n", res);
+	res = ft_printf("ret = %d\n", ft_printf("%%p::[%1.50d]\n", -8473));
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
+//Goodd
+	res = printf("ret = %d\n", printf("%%p::[%0100.50d]\n", -8473));
+	printf("Return value : %d\n", res);
+	res = ft_printf("ret = %d\n", ft_printf("%%p::[%0100.50d]\n", -8473));
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
+	res = printf("ret = %d\n", printf("%%p::[%010d]\n", 8473));
+	printf("Return value : %d\n", res);
+	res = ft_printf("ret = %d\n", ft_printf("%%p::[%010d]\n", 8473));
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
+	res = printf("ret = %d\n", printf("%%p::[%10d]\n", 8473));
+	printf("Return value : %d\n", res);
+	res = ft_printf("ret = %d\n", ft_printf("%%p::[%10d]\n", 8473));
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+    
+	res = printf("ret = %d\n", printf("%%p::[%.5d]\n", 8473));
+	printf("Return value : %d\n", res);
+	res = ft_printf("ret = %d\n", ft_printf("%%p::[%.5d]\n", 8473));
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+	*/
+/*
+	res = printf("ret = %d\n", printf("%%p::[%01.1d]\n", 8473));
+	printf("Return value : %d\n", res);
+	res = ft_printf("ret = %d\n", ft_printf("%%p::[%01.1d]\n", 8473));
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+    
+	res = printf("ret = %d\n", printf("%%p::[%010.1d]\n", 8473));
+	printf("Return value : %d\n", res);
+	res = ft_printf("ret = %d\n", ft_printf("%%p::[%010.1d]\n", 8473));
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
+	res = printf("ret = %d\n", printf("%%p::[%01.50d]\n", 8473));
+	printf("Return value : %d\n", res);
+	res = ft_printf("ret = %d\n", ft_printf("%%p::[%01.50d]\n", 8473));
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+    
+	res = printf("ret = %d\n", printf("%%p::[%1.50d]\n", 8473));
+	printf("Return value : %d\n", res);
+	res = ft_printf("ret = %d\n", ft_printf("%%p::[%1.50d]\n", 8473));
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+    
+	res = printf("ret = %d\n", printf("%%p::[%0100.50d]\n", 8473));
+	printf("Return value : %d\n", res);
+	res = ft_printf("ret = %d\n", ft_printf("%%p::[%0100.50d]\n", 8473));
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+    
+	res = printf("%c", 'a');
+	printf("Return value : %d\n", res);
+	res = ft_printf("%c", 'a');
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+	
+	res = printf("%10c", 't');
+	printf("Return value : %d\n", res);
+	res = ft_printf("%10c", 't');
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
 	res = printf("%p\n", NULL);
 	printf("Return value : %d\n", res);
 	res = ft_printf("%p\n", NULL);
