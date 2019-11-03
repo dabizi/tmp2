@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 14:42:22 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/03 19:19:06 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/03 19:24:02 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -539,7 +539,7 @@ printf("Test\n");
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
 
-/*
+
 	res = printf("%010x\n", 20);
 	printf("Return value : %d\n", res);
 	res = ft_printf("%010x\n", 20);
@@ -637,7 +637,7 @@ printf("Test\n");
 	res = ft_printf("%-15p\n", NULL);
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
-*/
+
 
 	return (0);
 }
