@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 14:42:22 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/03 18:32:59 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/03 18:41:50 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,8 +146,18 @@ int		main(int ac, char **av)
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
 
+	res = printf("%50.0d\n", 10);
+	printf("Return value : %d\n", res);
+	res = ft_printf("%50.0d\n", 10);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
 
-/*
+	res = printf("%*.*d\n", 50, 5, 10);
+	printf("Return value : %d\n", res);
+	res = ft_printf("%*.*d\n", 50, 5, 10);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
 	res = printf("ret = %d\n", printf("%%p::[%010d]\n", -8473));
 	printf("Return value : %d\n", res);
 	res = ft_printf("ret = %d\n", ft_printf("%%p::[%010d]\n", -8473));
@@ -254,14 +264,11 @@ int		main(int ac, char **av)
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
 
-	printf("Test de C\n");
 	res = printf("%-d\n", 123);
 	printf("Return value : %d\n", res);
 	res = ft_printf("%-d\n", 123);
 	ft_printf("Return value : %d\n", res);
 	ft_printf("\n");
-
-
 
 	res = printf("p12 %.0d\n", 0);
 	printf("Return value : %d\n", res);
@@ -287,7 +294,6 @@ int		main(int ac, char **av)
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
 
-
 	res = printf("p6 %.0d\n", 100);
 	printf("Return value : %d\n", res);
 	res = ft_printf("p6 %.0d\n", 100);
@@ -311,7 +317,6 @@ int		main(int ac, char **av)
 	res = ft_printf("p18 %.1i\n", 100);
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
-
 
 
 	printf("Test de d1 with flag\n");
@@ -359,7 +364,7 @@ int		main(int ac, char **av)
 	ft_printf("\n");
 
 
-
+/*
 	printf("Test\n");
 	res = printf("p0 % .3s\n", "cccc");
 	printf("Return value : %d\n\n", res);
