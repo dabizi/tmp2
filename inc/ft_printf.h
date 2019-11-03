@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 12:52:44 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/02 19:17:54 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/03 18:55:56 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void			ft_flags_z(va_list aux, int *res, t_printf *t_flag, int *i);
 int				ft_is_flag(char c, t_printf *t_flag, int *i);
 void	ft_space(int nb, int cas, int *res, t_printf *t_flag);
 
+void	ft_update_value(t_printf *t_flag, int neg);
+void	ft_handle_space(int *res, t_printf *t_flag, int size, int neg);
 
 void	ft_conv_padr(va_list aux, int *res, t_printf *t_flag);
 void	ft_conv_xadr(va_list aux, int *res, t_printf *t_flag);

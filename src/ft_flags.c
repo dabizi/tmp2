@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 19:18:01 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/03 18:45:17 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/03 19:18:31 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,11 @@ void	ft_flags_n(char *str, t_printf *t_flag, int *i)
 {
 	if (ft_atoi(str) > 1)
 	{
+		if (t_flag->fl_zer)
+		{
+			t_flag->zero_before = ft_atoi(str);
+			t_flag->fl_zer = 0;
+		}
 		if (!t_flag->space_after && t_flag->fl_min)
 			t_flag->space_after = ft_atoi(str);
 		else if (!t_flag->space_before && !t_flag->fl_min)

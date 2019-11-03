@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 17:50:45 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/03 18:32:34 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/03 19:07:34 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,6 @@ void	ft_update_value(t_printf *t_flag, int neg)
 		t_flag->zero_before = t_flag->space_before;
 		t_flag->space_before = 0;
 	}
-
-//	ft_display(t_flag, neg);
 }
 
 void	ft_handle_space(int *res, t_printf *t_flag, int size, int neg)
@@ -66,9 +64,6 @@ void	ft_handle_space(int *res, t_printf *t_flag, int size, int neg)
 	}
 	if (t_flag->zero_before)
 		ft_space(t_flag->zero_before, 0, res, t_flag);
-	//if (t_flag->width > 0)
-	//	ft_space(t_flag->width - t_flag->size, 0, res, t_flag);
-
 }
 
 void	ft_space(int nb, int cas, int *res, t_printf *t_flag)
@@ -112,8 +107,6 @@ void	ft_conv_uint(va_list aux, int *res, t_printf *t_flag)
 	t_flag->conv = 0;
 	nb = va_arg(aux, unsigned int);
 	t_flag->size = ft_strlen(ft_itoa(nb));
-//	size_nb = ft_strlen(ft_itoa(nb));
-//	ft_handle_space(res, t_flag, size_nb, ((nb < 0) ? 0 : 1));
 	if (t_flag->fl_poi && nb == 0)
 		return;
 	ft_update_value(t_flag, ((nb < 0) ? 1 : 0));
