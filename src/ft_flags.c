@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 19:18:01 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/02 20:44:58 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/03 18:25:59 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_flags_m(va_list aux, int *res, t_printf *t_flag)
 
 void	ft_flags_z(va_list aux, int *res, t_printf *t_flag, int *i)
 {
-	if (!t_flag->fl_min && !t_flag->fl_poi)
+	if (!t_flag->fl_min)
 		t_flag->fl_zer = 1;
 	*i += 1;
 }
@@ -57,12 +57,37 @@ void	ft_flags_n(char *str, t_printf *t_flag, int *i)
 //TODO
 	if (ft_atoi(str) > 1)
 	{
+
+
 		if (!t_flag->space_after && t_flag->fl_min)
 			t_flag->space_after = ft_atoi(str);
 		else if (!t_flag->space_before && !t_flag->fl_min)
-			t_flag->space_before = ft_atoi(str);
+			if (t_flag->fl_poi)
+				t_flag->zero_before = ft_atoi(str);
+			else
+			{
+				//t_flag->zero_before = ft_atoi(str);
+				t_flag->space_before = ft_atoi(str);
+			}
+//	else if (!t_flag->space_before && t_flag->fl_poi)
+//			t_flag->zero_before = ft_atoi(str);
 		else if (!t_flag->space_before && t_flag->fl_poi)
 			t_flag->width = ft_atoi(str);
+		else if (t_flag->space_before && t_flag->fl_poi)
+		{
+			if (t_flag->space_before > ft_atoi(str))
+			{
+				t_flag->zero_before = ft_atoi(str);
+
+			}
+			else
+			{
+				t_flag->zero_before = ft_atoi(str);
+				t_flag->space_before = 0;
+
+			}
+
+		}
 		else if (t_flag->fl_poi && t_flag->fl_zer)
 			t_flag->zero_before = ft_atoi(str);
 	}
