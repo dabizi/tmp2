@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 19:18:01 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/04 17:42:49 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/04 21:09:37 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,8 +101,10 @@ void	ft_flags_n(char *str, t_printf *t_flag, int *i)
 				}
 		else if (t_flag->space_before && t_flag->fl_poi)
 		{
+		//	printf("here");
 			if (t_flag->space_before > ft_atoi(str))
 				{
+				//TODO Bug here
 				t_flag->zero_before = ft_atoi(str);
 		//		printf("\n4\n");
 				}
@@ -110,14 +112,12 @@ void	ft_flags_n(char *str, t_printf *t_flag, int *i)
 			{
 				t_flag->zero_before = ft_atoi(str);
 				t_flag->space_before = 0;
-		//		printf("\n5\n");
 			}
 		}
 		else if (t_flag->fl_poi && t_flag->fl_zer)
 		{
 			t_flag->zero_before = ft_atoi(str);
 		//		printf("\n6\n");
-		//	printf("hola");
 
 			}
 	}

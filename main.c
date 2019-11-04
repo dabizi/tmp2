@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 14:42:22 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/04 17:47:17 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/04 21:52:11 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,93 @@ int		main(int ac, char **av)
 	res = 0;
 	ac = 1;
 /*
+	printf("Test\n");
+	res = printf("p0 % .3s\n", "cccc");
+	printf("Return value : %d\n\n", res);
+	res = ft_printf("p0 % .3s\n", "cccc");
+	printf("Return value : %d\n\n", res);
+	ft_printf("\n");
+
+	res = printf("%c\n", 0);
+	printf("Return value : %d\n\n", res);
+	ft_printf("%c\n", 0);
+	printf("Return value : %d\n\n", res);
+	
+	res = printf("%5.2x\n", 5427);
+	printf("Return value : %d\n\n", res);
+	ft_printf("%5.2x\n", 5427);
+	printf("Return value : %d\n\n", res);
+	
+	res = printf("%5.2x\n", 0);
+	printf("Return value : %d\n\n", res);
+	ft_printf("%5.2x\n", 0);
+	printf("Return value : %d\n\n", res);
+	
+	res = printf("%12c\n", 0);
+	printf("Return value : %d\n\n", res);
+	res = ft_printf("%12c\n", 0);
+	printf("Return value : %d\n\n", res);
+
+	res = printf("%d\n", -2147483647);
+	printf("Return value : %d\n\n", res);
+	res = ft_printf("%d\n", -2147483647);
+	printf("Return value : %d\n\n", res);
+	
+	res = printf("%d\n", 2147483647);
+	printf("Return value : %d\n\n", res);
+	res = ft_printf("%d\n", 2147483647);
+	printf("Return value : %d\n\n", res);
+*/	
+	res = printf("%03.2d\n", 0);
+	printf("Return value : %d\n\n", res);
+	res = ft_printf("%03.2d\n", 0);
+	printf("Return value : %d\n\n", res);
+
+res = printf("%03.1d\n", 0);
+	printf("Return value : %d\n\n", res);
+	res = ft_printf("%03.1d\n", 0);
+	printf("Return value : %d\n\n", res);
+
+	res = printf("%03.2d\n", 1);
+	printf("Return value : %d\n\n", res);
+	res = ft_printf("%03.2d\n", 1);
+	printf("Return value : %d\n\n", res);
+	
+	res = printf("%03.2d\n", -1);
+	printf("Return value : %d\n\n", res);
+	res = ft_printf("%03.2d\n", -1);
+	printf("Return value : %d\n\n", res);
+	/*
+	res = printf("%5.d\n", 0);
+	printf("return value : %d\n\n", res);
+	res = ft_printf("%5.d\n", 0);
+	printf("return value : %d\n\n", res);
+
+	res = printf("%5.d\n", 1);
+	printf("return value : %d\n\n", res);
+	res = ft_printf("%5.d\n", 1);
+	printf("return value : %d\n\n", res);
+	
+	res = printf("%5.d\n", -1);
+	printf("return value : %d\n\n", res);
+	res = ft_printf("%5.d\n", -1);
+	printf("return value : %d\n\n", res);
+
+	res = printf("%d\n", 0);
+	printf("Return value : %d\n\n", res);
+	res = ft_printf("%d\n", 0);
+	printf("Return value : %d\n\n", res);
+	
+	res = printf("%05.d\n", 0);
+	printf("Return value : %d\n\n", res);
+	res = ft_printf("%05.d\n", 0);
+	printf("Return value : %d\n\n", res);
+	
+	res = printf("@moulitest: %5.d %5.0d\n", 0, 0);
+	printf("Return value : %d\n\n", res);
+	res = ft_printf("@moulitest: %5.d %5.0d\n", 0, 0);
+	printf("Return value : %d\n\n", res);
+
 	printf("%d\n\n", printf("%-.12u\n", -20000000));
 	ft_printf("%d\n\n", ft_printf("%-.12u\n", -20000000));
 	
@@ -400,14 +487,9 @@ res = printf("ret = %d\n", printf("%%p::[%010.1d]\n", -8473));
 	res = ft_printf("%12.6d\n", -8425); //Donne "       -8425"
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
-*/
-	printf("Test\n");
-	res = printf("p0 % .3s\n", "cccc");
-	printf("Return value : %d\n\n", res);
-	res = ft_printf("p0 % .3s\n", "cccc");
-	printf("Return value : %d\n\n", res);
-	ft_printf("\n");
-/*
+
+
+
 	printf("Test de Base\n");
 	res = printf("Alabama\n");
 	printf("Return value : %d\n", res);
@@ -715,6 +797,7 @@ printf("Test\n");
 	printf("%d\n\n", printf("6unsigned 1 %012u unsigned 2 %012u\n\n", 42, -42));
 	ft_printf("%d\n\n", ft_printf("6unsigned 1 %012u unsigned 2 %012u\n\n", 42, -42));
 	printf("\n");
+
 */
 	return (0);
 }
