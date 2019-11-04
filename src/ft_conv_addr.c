@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 17:37:03 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/04 16:03:15 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/04 16:12:41 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	ft_update_addr(t_printf *t_flag, int neg)
 		}
 		else if (!t_flag->fl_poi)
 		{
-//		printf("\n5");
+//ks		printf("\n5");
 		t_flag->space_before -= t_flag->size - neg;
 			if (t_flag->fl_zer)
 			{
@@ -130,7 +130,6 @@ void	ft_conv_padr(va_list aux, int *res, t_printf *t_flag)
 	char *tmp;
 
 	t_flag->conv = 0;
-	t_flag->width -= 2;
 	ptr = va_arg(aux, long long);
 	if (!ptr && t_flag->fl_zer)
 		ft_putstr_fd("0x", 1);
@@ -138,6 +137,10 @@ void	ft_conv_padr(va_list aux, int *res, t_printf *t_flag)
 		return;
 	tmp = ft_itoa_base(ptr, MIN);
 	t_flag->size = ft_strlen(tmp);
+	if (t_flag->space_before)
+		t_flag->space_before -= 2;
+	else if (t_flag->space_after)
+		t_flag->space_after -= 2;
 	ft_update_addr(t_flag, ((ptr < 0) ? 1 : 0));
 	ft_handle_space(res, t_flag, 1, ((ptr < 0) ? 1 : 0));
 	if (ptr || (!ptr && !t_flag->fl_zer))
@@ -183,11 +186,7 @@ void	ft_conv_majxadr(va_list aux, int *res, t_printf *t_flag)
 	t_flag->size = ft_strlen(tmp);
 	ft_update_addr(t_flag, ((ptr < 0) ? 1 : 0));
 	ft_handle_space(res, t_flag, 1, ((ptr < 0) ? 1 : 0));
-	//if (!t_flag->fl_min)
-	//	ft_handle_spaceadd(res, t_flag, ft_strlen(tmp), 0);
 	ft_putstr_fd(tmp, 1);
-//	if (t_flag->fl_min)
-	//	ft_handle_spaceadd(res, t_flag, ft_strlen(tmp), 0);
 	*res += ft_strlen(tmp);
 	free(tmp);
 	if (t_flag->space_after > 0)
