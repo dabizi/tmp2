@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 17:37:03 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/04 16:12:41 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/04 16:55:44 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_update_addr(t_printf *t_flag, int neg)
 	{
 		t_flag->width = t_flag->space_before;
 		t_flag->space_before -= (t_flag->zero_before + neg + t_flag->space_after);
-	//	printf("\n3");
+//		printf("\n3");
 		if (t_flag->fl_sta == 1)
 		{
 			t_flag->space_before -= t_flag->size - neg;
@@ -42,7 +42,7 @@ void	ft_update_addr(t_printf *t_flag, int neg)
 			}
 		else if (t_flag->fl_sta > 1)
 			;
-//			printf("\n2");
+		//	printf("\n2");
 		else if (t_flag->fl_poi && !t_flag->fl_min && !t_flag->zero_before)
 		{
 //		printf("\n4");
@@ -50,7 +50,7 @@ void	ft_update_addr(t_printf *t_flag, int neg)
 		}
 		else if (!t_flag->fl_poi)
 		{
-//ks		printf("\n5");
+//		printf("\n5");
 		t_flag->space_before -= t_flag->size - neg;
 			if (t_flag->fl_zer)
 			{
@@ -59,19 +59,31 @@ void	ft_update_addr(t_printf *t_flag, int neg)
 			}
 		}
 		else if (t_flag->fl_poi && !t_flag->space_before)
-//			printf("\n6");
+		{
 			t_flag->space_before = t_flag->zero_before - t_flag->size;
+//			printf("\n6");
+		}
 	}
 	if (!t_flag->space_before && t_flag->width > -1)
 	{
-//	printf("\n5");
-		t_flag->zero_before = t_flag->width;
+		//if (t_flag->fl_zer)
+			t_flag->zero_before = t_flag->width;
 	}
 	if (t_flag->zero_before)
 	{
+		if (t_flag->fl_poi && t_flag->fl_sta < 2 && t_flag->space_before)
+		{
+			t_flag->space_before = t_flag->zero_before;
+			
+		}
 		t_flag->zero_before -= (t_flag->size);
+	//	t_flag->space_before = t_flag->width - t_flag->space_before;
 		if (t_flag->fl_poi && neg)
+		{
 			t_flag->zero_before += 1;
+		//	t_flag->space_before = t_flag->zero_before;
+		
+		}
 	//	printf("\n6");
 	}
 	if (t_flag->space_after)
@@ -79,50 +91,15 @@ void	ft_update_addr(t_printf *t_flag, int neg)
 	t_flag->space_after -= (t_flag->size + t_flag->zero_before + t_flag->space_before);
 	//		printf("\n7");
 	}
-	/*
-	if (t_flag->fl_poi && t_flag->fl_zer && t_flag->space_before && !t_flag->zero_before)
-	{
-		t_flag->zero_before = t_flag->space_before;
-		t_flag->space_before = 0;
-	}
-	*/
 	if (t_flag->fl_zer && t_flag->fl_sta && t_flag->space_before && 
 	!t_flag->zero_before)
 	{
 		t_flag->zero_before = t_flag->space_before;
 		t_flag->space_before = 0;
+	//		printf("\n8");
 	}
-
 //	ft_display(t_flag, neg);
 }
-
-/*
-void	ft_update_addr(t_printf *t_flag, int neg)
-{
-//	ft_dis(t_flag, neg);
-	if (t_flag->space_before)
-	{
-		t_flag->width = t_flag->space_before;
-		t_flag->space_before -= (t_flag->zero_before + neg);
-	}
-	if (!t_flag->space_before && t_flag->width > -1)
-		t_flag->zero_before = t_flag->width;
-	if (t_flag->zero_before)
-		t_flag->zero_before -= (t_flag->size - neg);
-	if (t_flag->space_after)
-		t_flag->space_after -= (t_flag->size + t_flag->zero_before);
-	if (t_flag->fl_sta && t_flag->space_before)
-		t_flag->space_before -= t_flag->size - neg;
-	if (t_flag->fl_zer && t_flag->fl_sta && t_flag->space_before && 
-	!t_flag->zero_before)
-	{
-		t_flag->zero_before = t_flag->space_before;
-		t_flag->space_before = 0;
-	}
-
-//	ft_dis(t_flag, neg);
-}
-*/
 
 void	ft_conv_padr(va_list aux, int *res, t_printf *t_flag)
 {

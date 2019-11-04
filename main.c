@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 14:42:22 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/04 16:07:14 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/04 17:11:40 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,13 @@ int		main(int ac, char **av)
 	res = 0;
 	ac = 1;
 
+
+/*
 	res = printf("%010.1d\n", 8473);
 	printf("Return value : %d\n", res);
 	res = ft_printf("%010.1d\n", 8473);
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
-
 
 res = printf("ret = %d\n", printf("%%p::[%010.1d]\n", -8473));
 	printf("Return value : %d\n", res);
@@ -512,6 +513,19 @@ printf("Test\n");
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
 
+	res = printf("%10.x\n", -20);
+	printf("Return value : %d\n", res);
+	res = ft_printf("%10.2x\n", -20);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
+	res = printf("%10.2x\n", -20);
+	printf("Return value : %d\n", res);
+	res = ft_printf("%10.2x\n", -20);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+	
+
 
 	res = printf("p23 %.4x\n", 100);
 	printf("Return value : %d\n", res);
@@ -584,6 +598,7 @@ printf("Test\n");
 	res = ft_printf("%10x\n", 20);
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
+
 
 
 	res = printf("%10.x\n", -20);
@@ -661,7 +676,36 @@ printf("Test\n");
 	printf("Return value : %d\n", res);
 	res = ft_printf("%-15p\n", NULL);
 	printf("Return value : %d\n", res);
+	ft_printf("\n");*/
+/*
+	printf("%d\n\n", printf("4unsigned 1 %12u unsigned 2 %12u\n\n", 42, -42));
+	ft_printf("%d\n\n", ft_printf("4unsigned 1 %12u unsigned 2 %12u\n\n", 42, -42));
+	printf("\n");
+*/	
+	res = printf("%12u\n", -42);
+	printf("Return value : %d\n", res);
+	res = ft_printf("%12u\n", -42);
+	printf("Return value : %d\n", res);
 	ft_printf("\n");
+/*	
+	res = printf("%12d\n", -42);
+	printf("Return value : %d\n", res);
+	res = ft_printf("%12d\n", -42);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+*/
+/*	
+	printf("%d\n\n", printf("4unsigned 1 %-12u unsigned 2 %-12u\n\n", 42, -42));
+	ft_printf("%d\n\n", ft_printf("4unsigned 1 %-12u unsigned 2 %-12u\n\n", 42, -42));
+	printf("\n");
 
+	printf("%d\n\n", printf("5unsigned 1 %0u unsigned 2 %0u\n\n", 42, -42));
+	ft_printf("%d\n\n", ft_printf("5unsigned 1 %0u unsigned 2 %0u\n\n", 42, -42));
+	printf("\n");
+	
+	printf("%d\n\n", printf("6unsigned 1 %012u unsigned 2 %012u\n\n", 42, -42));
+	ft_printf("%d\n\n", ft_printf("6unsigned 1 %012u unsigned 2 %012u\n\n", 42, -42));
+	printf("\n");
+*/
 	return (0);
 }

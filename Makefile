@@ -6,7 +6,7 @@
 #    By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/17 14:34:55 by jgrandne          #+#    #+#              #
-#    Updated: 2019/10/31 17:55:24 by jgrandne         ###   ########.fr        #
+#    Updated: 2019/11/04 17:22:43 by jgrandne         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,8 @@ LIB_NAME = 	ft_atoi.c\
 			ft_itoa.c \
 			ft_itoa_base.c \
 			ft_putnbru_fd.c \
-			ft_itoau.c
+			ft_itoau.c \
+			ft_lgitoa.c
 		#	ft_isdigit.c\
 			ft_itoa_base.c\
 			ft_strlen.c\

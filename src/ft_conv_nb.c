@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 17:50:45 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/04 16:08:36 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/04 17:23:34 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,17 +148,17 @@ void	ft_conv_int(va_list aux, int *res, t_printf *t_flag)
 
 void	ft_conv_uint(va_list aux, int *res, t_printf *t_flag)
 {
-	unsigned int nb;
+	long long nb;
 	int			size_nb;
 
 	t_flag->conv = 0;
-	nb = va_arg(aux, unsigned int);
-	t_flag->size = ft_strlen(ft_itoa(nb));
+	nb = (long long)va_arg(aux, unsigned int);
 	if (t_flag->fl_poi && nb == 0)
 		return;
+	t_flag->size = ft_strlen(ft_lgitoa(nb));
+//	ft_display(t_flag, 0);
 	ft_update_value(t_flag, ((nb < 0) ? 1 : 0));
 	ft_handle_space(res, t_flag, 1, ((nb < 0) ? 1 : 0));
-	
 	ft_putnbru_fd(nb, 1);
 	*res += t_flag->size;
 	if (t_flag->space_after > 0)

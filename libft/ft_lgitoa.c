@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_lgitoa.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/10 10:31:51 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/04 17:19:21 by jgrandne         ###   ########.fr       */
+/*   Created: 2019/11/04 17:20:39 by jgrandne          #+#    #+#             */
+/*   Updated: 2019/11/04 17:20:47 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int			get_size(unsigned int n)
+static int			get_size(unsigned long long n)
 {
 	unsigned int	size;
 
@@ -25,17 +25,17 @@ static int			get_size(unsigned int n)
 	return (size + 1);
 }
 
-char				*ft_itoa(int n)
+char				*ft_lgitoa(long long n)
 {
 	char			*res;
 	int				size;
 	int				index;
-	unsigned int	nb;
+	unsigned long long	nb;
 
 	if (n < 0)
-		nb = (unsigned int)-n;
+		nb = (unsigned long long)-n;
 	else
-		nb = (unsigned int)n;
+		nb = (unsigned long long)n;
 	size = get_size(nb);
 	index = 0;
 	if (!(res = (char *)malloc(sizeof(char) * size + 1 + (n < 0 ? 1 : 0))))

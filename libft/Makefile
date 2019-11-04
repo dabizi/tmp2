@@ -6,7 +6,7 @@
 #    By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/16 11:50:11 by jgrandne          #+#    #+#              #
-#    Updated: 2019/10/30 17:47:25 by jgrandne         ###   ########.fr        #
+#    Updated: 2019/11/04 17:21:31 by jgrandne         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ ft_lstclear_bonus.c ft_lstiter_bonus.c \
 ft_lstmap_bonus.c \
 \
 ft_itoau.c ft_putnbru_fd.c ft_itoa_base.c \
+ft_lgitoa.c
 
 INCLUDES = libft.h
 OBJS_LIBFT = $(SRCS:.c=.o)
