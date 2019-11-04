@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 19:18:01 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/04 17:16:41 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/04 17:42:49 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@ void	ft_flags_z(va_list aux, int *res, t_printf *t_flag, int *i)
 void	ft_flags_p(va_list aux, int *res, t_printf *t_flag)
 {
 	t_flag->fl_poi = 1;
+	if (t_flag->fl_min && !t_flag->space_before && !t_flag->space_after
+	&& !t_flag->zero_before)
+		t_flag->fl_min = 0;
 //	if (t_flag->fl_zer)
 //		t_flag->fl_zer = 0;
 }
