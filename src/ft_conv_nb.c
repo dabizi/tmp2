@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 17:50:45 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/03 19:07:34 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/04 12:56:22 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	ft_display(t_printf *t_flag, int neg)
 {
 
-	
 	printf("\n\nFlag zero vaut : %d\n", t_flag->fl_zer);
 	printf("Zero before vaut : %d\n", t_flag->zero_before);
 	printf("neg vaut : %d\n", neg);
@@ -36,22 +35,37 @@ void	ft_update_value(t_printf *t_flag, int neg)
 	if (t_flag->space_before)
 	{
 		t_flag->width = t_flag->space_before;
-		t_flag->space_before -= (t_flag->zero_before + neg);
+		t_flag->space_before -= (t_flag->zero_before + neg + t_flag->space_after);
+		if (t_flag->fl_sta == 1)
+			t_flag->space_before -= t_flag->size - neg;
+		else if (t_flag->fl_sta > 1)
+			;
+		else if (t_flag->fl_poi && !t_flag->fl_min && !t_flag->zero_before)
+			t_flag->space_before -= t_flag->size - neg;
+		//	if (!t_flag->fl_min || !t_flag->fl_sta)
+		//		t_flag->space_before -= t_flag->size - neg;
 	}
 	if (!t_flag->space_before && t_flag->width > -1)
 		t_flag->zero_before = t_flag->width;
 	if (t_flag->zero_before)
 		t_flag->zero_before -= (t_flag->size - neg);
 	if (t_flag->space_after)
-		t_flag->space_after -= (t_flag->size + t_flag->zero_before);
-	if (t_flag->fl_sta && t_flag->space_before)
-		t_flag->space_before -= t_flag->size - neg;
+		t_flag->space_after -= (t_flag->size + t_flag->zero_before + t_flag->space_before);
+//	if (t_flag->space_before)
+//	{
+		//if (t_flag->fl_sta)
+		//	t_flag->space_before -= t_flag->size - neg;
+//		if (t_flag->fl_poi)
+//			t_flag->space_before -= t_flag->size - neg;
+	
+//	}
 	if (t_flag->fl_zer && t_flag->fl_sta && t_flag->space_before && 
 	!t_flag->zero_before)
 	{
 		t_flag->zero_before = t_flag->space_before;
 		t_flag->space_before = 0;
 	}
+//	ft_display(t_flag, neg);
 }
 
 void	ft_handle_space(int *res, t_printf *t_flag, int size, int neg)
