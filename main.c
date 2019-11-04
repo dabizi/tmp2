@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 14:42:22 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/04 21:52:11 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/04 21:56:29 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		main(int ac, char **av)
 	printf("Return value : %d\n\n", res);
 	res = ft_printf("%12c\n", 0);
 	printf("Return value : %d\n\n", res);
-
+*/
 	res = printf("%d\n", -2147483647);
 	printf("Return value : %d\n\n", res);
 	res = ft_printf("%d\n", -2147483647);
@@ -56,7 +56,7 @@ int		main(int ac, char **av)
 	printf("Return value : %d\n\n", res);
 	res = ft_printf("%d\n", 2147483647);
 	printf("Return value : %d\n\n", res);
-*/	
+	
 	res = printf("%03.2d\n", 0);
 	printf("Return value : %d\n\n", res);
 	res = ft_printf("%03.2d\n", 0);
@@ -76,7 +76,7 @@ res = printf("%03.1d\n", 0);
 	printf("Return value : %d\n\n", res);
 	res = ft_printf("%03.2d\n", -1);
 	printf("Return value : %d\n\n", res);
-	/*
+	
 	res = printf("%5.d\n", 0);
 	printf("return value : %d\n\n", res);
 	res = ft_printf("%5.d\n", 0);
@@ -798,6 +798,6 @@ printf("Test\n");
 	ft_printf("%d\n\n", ft_printf("6unsigned 1 %012u unsigned 2 %012u\n\n", 42, -42));
 	printf("\n");
 
-*/
+
 	return (0);
 }
