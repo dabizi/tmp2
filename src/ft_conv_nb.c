@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 17:50:45 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/04 14:41:36 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/04 15:59:56 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_display(t_printf *t_flag, int neg)
 
 	printf("\n\nFlag zero vaut : %d\n", t_flag->fl_zer);
 	printf("Flag star vaut : %d\n", t_flag->fl_sta);
+	printf("Flag minus vaut : %d\n", t_flag->fl_min);
+	printf("Flag point vaut : %d\n", t_flag->fl_poi);
 	printf("Zero before vaut : %d\n", t_flag->zero_before);
 	printf("neg vaut : %d\n", neg);
 	printf("Siz t fl vaut : %d\n", t_flag->size);
@@ -37,26 +39,33 @@ void	ft_update_value(t_printf *t_flag, int neg)
 	{
 		t_flag->width = t_flag->space_before;
 		t_flag->space_before -= (t_flag->zero_before + neg + t_flag->space_after);
-	//		printf("\n3");
+	//	printf("\n3");
 		if (t_flag->fl_sta == 1)
 		{
 			t_flag->space_before -= t_flag->size - neg;
-	//		printf("\n1");
+//			printf("\n1");
 			}
 		else if (t_flag->fl_sta > 1)
 			;
-		//	printf("\n2");
+//			printf("\n2");
 		else if (t_flag->fl_poi && !t_flag->fl_min && !t_flag->zero_before)
 		{
-
-	//		printf("\n4");
+//		printf("\n4");
 			t_flag->space_before -= t_flag->size - neg;
 		}
 		else if (!t_flag->fl_poi)
-			t_flag->space_before -= t_flag->size - neg;
-
-		//	if (!t_flag->fl_min || !t_flag->fl_sta)
-		//		t_flag->space_before -= t_flag->size - neg;
+		{
+//		printf("\n5");
+		t_flag->space_before -= t_flag->size - neg;
+			if (t_flag->fl_zer)
+			{
+				t_flag->zero_before = t_flag->space_before;
+				t_flag->space_before -= t_flag->zero_before;
+			}
+		}
+		else if (t_flag->fl_poi && !t_flag->space_before)
+//			printf("\n6");
+			t_flag->space_before = t_flag->zero_before - t_flag->size;
 	}
 	if (!t_flag->space_before && t_flag->width > -1)
 	{
@@ -75,22 +84,20 @@ void	ft_update_value(t_printf *t_flag, int neg)
 	t_flag->space_after -= (t_flag->size + t_flag->zero_before + t_flag->space_before);
 	//		printf("\n7");
 	}
-
-
-//	if (t_flag->space_before)
-//	{
-		//if (t_flag->fl_sta)
-		//	t_flag->space_before -= t_flag->size - neg;
-//		if (t_flag->fl_poi)
-//			t_flag->space_before -= t_flag->size - neg;
-	
-//	}
+	/*
+	if (t_flag->fl_poi && t_flag->fl_zer && t_flag->space_before && !t_flag->zero_before)
+	{
+		t_flag->zero_before = t_flag->space_before;
+		t_flag->space_before = 0;
+	}
+	*/
 	if (t_flag->fl_zer && t_flag->fl_sta && t_flag->space_before && 
 	!t_flag->zero_before)
 	{
 		t_flag->zero_before = t_flag->space_before;
 		t_flag->space_before = 0;
 	}
+
 //	ft_display(t_flag, neg);
 }
 

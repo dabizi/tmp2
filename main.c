@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 14:42:22 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/04 14:40:07 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/04 16:00:21 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,31 @@ int		main(int ac, char **av)
 
 	res = 0;
 	ac = 1;
+
+	res = printf("%010.1d\n", 8473);
+	printf("Return value : %d\n", res);
+	res = ft_printf("%010.1d\n", 8473);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
+
+res = printf("ret = %d\n", printf("%%p::[%010.1d]\n", -8473));
+	printf("Return value : %d\n", res);
+	res = ft_printf("ret = %d\n", ft_printf("%%p::[%010.1d]\n", -8473));
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+	
+	res = printf("ret = %d\n", printf("%%p::[%010.1d]\n", 8473));
+	printf("Return value : %d\n", res);
+	res = ft_printf("ret = %d\n", ft_printf("%%p::[%010.1d]\n", 8473));
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+	
+	res = printf("%010d\n", -8473);
+	printf("Return value : %d\n", res);
+	res = ft_printf("%010d\n", -8473);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
 
 	res = printf("%*d\n", 12, -123);
 	printf("%d\n", res);
@@ -166,14 +191,13 @@ int		main(int ac, char **av)
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
 
+
 	res = printf("%10d\n", -8473);
 	printf("Return value : %d\n", res);
 	res = ft_printf("%10d\n", -8473);
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
 	
-
-	/*
 	res = printf("ret = %d\n", printf("%%p::[%010d]\n", -8473));
 	printf("Return value : %d\n", res);
 	res = ft_printf("ret = %d\n", ft_printf("%%p::[%010d]\n", -8473));
@@ -198,11 +222,8 @@ int		main(int ac, char **av)
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
    //Good
-	res = printf("ret = %d\n", printf("%%p::[%010.1d]\n", -8473));
-	printf("Return value : %d\n", res);
-	res = ft_printf("ret = %d\n", ft_printf("%%p::[%010.1d]\n", -8473));
-	printf("Return value : %d\n", res);
-	ft_printf("\n");
+   //
+   //
 
 	res = printf("ret = %d\n", printf("%%p::[%01.50d]\n", -8473));
 	printf("Return value : %d\n", res);
@@ -247,11 +268,7 @@ int		main(int ac, char **av)
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
     
-	res = printf("ret = %d\n", printf("%%p::[%010.1d]\n", 8473));
-	printf("Return value : %d\n", res);
-	res = ft_printf("ret = %d\n", ft_printf("%%p::[%010.1d]\n", 8473));
-	printf("Return value : %d\n", res);
-	ft_printf("\n");
+
 
 	res = printf("ret = %d\n", printf("%%p::[%01.50d]\n", 8473));
 	printf("Return value : %d\n", res);
@@ -366,13 +383,7 @@ int		main(int ac, char **av)
 	res = ft_printf("%12d\n", -8425); //Donne "       -8425"
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
-
-	res = printf("%d\n", -2147483648); //Donne "       -8425"
-	printf("Return value : %d\n", res);
-	res = ft_printf("%d\n", -2147483648); //Donne "       -8425"
-	printf("Return value : %d\n", res);
-	ft_printf("\n");
-
+	
 	res = printf("%12.6d\n", -8425); //Donne "       -8425"
 	printf("Return value : %d\n", res);
 	res = ft_printf("%12.6d\n", -8425); //Donne "       -8425"
@@ -380,6 +391,12 @@ int		main(int ac, char **av)
 	ft_printf("\n");
 
 
+
+
+
+
+
+/*
 	printf("Test\n");
 	res = printf("p0 % .3s\n", "cccc");
 	printf("Return value : %d\n\n", res);
@@ -652,9 +669,8 @@ printf("Test\n");
 	res = ft_printf("%-15p\n", NULL);
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
+
 */
-
-
 
 	return (0);
 }
