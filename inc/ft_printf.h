@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 12:52:44 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/03 18:55:56 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/05 18:54:37 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct	s_printf
 	int		size;
 	int		conv;
 	int		percent;
+	int		exception;
 }				t_printf;
 
 int				ft_printf(const char *str, ...);
@@ -45,11 +46,11 @@ void			ft_conv_int(va_list aux, int *res, t_printf *t_flag);
 void			ft_conv_uint(va_list aux, int *res, t_printf *t_flag);
 void			ft_conv_adr(va_list aux, int *res, int cse, t_printf *t_flag);
 void			ft_conv_per(int *res, t_printf *t_flag);
-void			ft_flags_m(va_list aux, int *res, t_printf *t_flag);
+void			ft_flags_m(int *res, t_printf *t_flag, char *str, int *i);
 void			ft_flags_n(char *str, t_printf *t_flag, int *i);
-void			ft_flags_p(va_list aux, int *res, t_printf *t_flag);
+void			ft_flags_p(int *res, t_printf *t_flag, char *str, int *i);
 void			ft_flags_s(va_list aux, int *res, t_printf *t_flag);
-void			ft_flags_z(va_list aux, int *res, t_printf *t_flag, int *i);
+void			ft_flags_z(int *res, t_printf *t_flag, int *i);
 int				ft_is_flag(char c, t_printf *t_flag, int *i);
 void	ft_space(int nb, int cas, int *res, t_printf *t_flag);
 

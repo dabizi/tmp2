@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 14:42:22 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/04 21:56:29 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/05 21:03:31 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int		main(int ac, char **av)
 
 	res = 0;
 	ac = 1;
+
 /*
 	printf("Test\n");
 	res = printf("p0 % .3s\n", "cccc");
@@ -46,7 +47,105 @@ int		main(int ac, char **av)
 	printf("Return value : %d\n\n", res);
 	res = ft_printf("%12c\n", 0);
 	printf("Return value : %d\n\n", res);
-*/
+
+	printf("Test de d2 with flag\n");
+	res = printf("%0*d\n", 5, 3);
+	printf("Return value : %d\n", res);
+	res = ft_printf("%0*d\n", 5, 3);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+*/	
+	res = printf("%0100.50d\n", 8425); //donne "       -8425"
+	printf("return value : %d\n", res);
+	res = ft_printf("%0100.50d\n",8425); //donne "       -8425"
+	printf("return value : %d\n", res);
+	ft_printf("\n");
+
+
+//	res = printf("%0100.50s\n", "wouloulou"); //donne "       -8425"
+	
+//	res = printf("%0100.5s\n", "wouloulou"); //donne "       -8425"
+
+	res = printf("%100.50d\n", 8425); //donne "       -8425"
+	printf("return value : %d\n", res);
+	res = ft_printf("%100.50d\n", 8425); //donne "       -8425"
+	printf("return value : %d\n", res);
+	ft_printf("\n");
+	
+	res = printf("%050.100d\n", 8425); //donne "       -8425"
+	printf("return value : %d\n", res);
+	res = ft_printf("%050.100d\n", 8425); //donne "       -8425"
+	printf("return value : %d\n", res);
+	ft_printf("\n");
+	
+	res = printf("%100.50d\n", 8425); //donne "       -8425"
+	printf("return value : %d\n", res);
+	res = ft_printf("%100.50d\n", 8425); //donne "       -8425"
+	printf("return value : %d\n", res);
+	ft_printf("\n");
+
+	res = printf("%0100.50d\n", -8425); //donne "       -8425"
+	printf("return value : %d\n", res);
+	res = ft_printf("%0100.50d\n",-8425); //donne "       -8425"
+	printf("return value : %d\n", res);
+	ft_printf("\n");
+
+
+//	res = printf("%0100.50s\n", "wouloulou"); //donne "       -8425"
+	
+//	res = printf("%0100.5s\n", "wouloulou"); //donne "       -8425"
+
+	res = printf("%100.50d\n", -8425); //donne "       -8425"
+	printf("return value : %d\n", res);
+	res = ft_printf("%100.50d\n", -8425); //donne "       -8425"
+	printf("return value : %d\n", res);
+	ft_printf("\n");
+	
+	res = printf("%050.100d\n", -8425); //donne "       -8425"
+	printf("return value : %d\n", res);
+	res = ft_printf("%050.100d\n", -8425); //donne "       -8425"
+	printf("return value : %d\n", res);
+	ft_printf("\n");
+	
+	res = printf("%100.50d\n", -8425); //donne "       -8425"
+	printf("return value : %d\n", res);
+	res = ft_printf("%100.50d\n", -8425); //donne "       -8425"
+	printf("return value : %d\n", res);
+	ft_printf("\n");
+/*
+
+
+	res = printf("%12.6d\n", -8425); //Donne "       -8425"
+	printf("Return value : %d\n", res);
+	res = ft_printf("%12.6d\n", -8425); //Donne "       -8425"
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+	
+	res = printf("ret = %d\n", printf("%%p::[%0100.50d]\n", 8473));
+	printf("Return value : %d\n", res);
+	res = ft_printf("ret = %d\n", ft_printf("%%p::[%0100.50d]\n", 8473));
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+//Goodd
+	res = printf("ret = %d\n", printf("%%p::[%0100.50d]\n", -8473));
+	printf("Return value : %d\n", res);
+	res = ft_printf("ret = %d\n", ft_printf("%%p::[%0100.50d]\n", -8473));
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
+	res = printf("%80.50d\n", 50);
+	printf("Return value : %d\n", res);
+	res = ft_printf("%80.50d\n", 50);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
+	res = printf("%080.50d\n", -50);
+	printf("Return value : %d\n", res);
+	res = ft_printf("%080.50d\n", -50);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
+/*
 	res = printf("%d\n", -2147483647);
 	printf("Return value : %d\n\n", res);
 	res = ft_printf("%d\n", -2147483647);
@@ -56,31 +155,128 @@ int		main(int ac, char **av)
 	printf("Return value : %d\n\n", res);
 	res = ft_printf("%d\n", 2147483647);
 	printf("Return value : %d\n\n", res);
+
+
+res = printf("%03.2d\n", 1);
+	printf("Return value : %d\n\n", res);
+	res = ft_printf("%03.2d\n", 1);
+	printf("Return value : %d\n\n\n\n\n", res);
+
+	res = printf("%03.1d\n", 0);
+	printf("Return value : %d\n\n", res);
+	res = ft_printf("%03.1d\n", 0);
+	printf("Return value : %d\n\n\n\n\n", res);
 	
+
+	res = printf("%03.20d\n", 0);
+	printf("Return value : %d\n\n", res);
+	res = ft_printf("%03.20d\n", 0);
+	printf("Return value : %d\n\n\n\n\n", res);
+	
+	res = printf("%3.20d\n", 0);
+	printf("Return value : %d\n\n", res);
+	res = ft_printf("%3.20d\n", 0);
+	printf("Return value : %d\n\n\n\n\n", res);
+
 	res = printf("%03.2d\n", 0);
 	printf("Return value : %d\n\n", res);
 	res = ft_printf("%03.2d\n", 0);
-	printf("Return value : %d\n\n", res);
-
-res = printf("%03.1d\n", 0);
-	printf("Return value : %d\n\n", res);
-	res = ft_printf("%03.1d\n", 0);
-	printf("Return value : %d\n\n", res);
-
+	printf("Return value : %d\n\n\n\n\n", res);
+	
 	res = printf("%03.2d\n", 1);
 	printf("Return value : %d\n\n", res);
 	res = ft_printf("%03.2d\n", 1);
+	printf("Return value : %d\n\n\n\n\n", res);
+
+	res = printf("%03.1d\n", 0);
 	printf("Return value : %d\n\n", res);
+	res = ft_printf("%03.1d\n", 0);
+	printf("Return value : %d\n\n\n\n\n", res);
 	
-	res = printf("%03.2d\n", -1);
+	res = printf("%03.20d\n", 0);
 	printf("Return value : %d\n\n", res);
-	res = ft_printf("%03.2d\n", -1);
+	res = ft_printf("%03.20d\n", 0);
+	printf("Return value : %d\n\n\n\n\n", res);
+	
+	res = printf("%3.20d\n", 0);
 	printf("Return value : %d\n\n", res);
+	res = ft_printf("%3.20d\n", 0);
+	printf("Return value : %d\n\n\n\n\n", res);
+	
+	res = printf("%20d\n", 0);
+	printf("Return value : %d\n\n", res);
+	res = ft_printf("%20d\n", 0);
+	printf("Return value : %d\n\n\n\n\n", res);
+	
+	res = printf("%020d\n", 0);
+	printf("Return value : %d\n\n", res);
+	res = ft_printf("%020d\n", 0);
+	printf("Return value : %d\n\n\n\n\n", res);
+	
+	res = printf("%3.20d\n", 123);
+	printf("Return value : %d\n\n", res);
+	res = ft_printf("%3.20d\n", 123);
+	printf("Return value : %d\n\n\n\n\n", res);
+	
+	res = printf("%20d\n", 123);
+	printf("Return value : %d\n\n", res);
+	res = ft_printf("%20d\n", 123);
+	printf("Return value : %d\n\n\n\n\n", res);
+	
+	res = printf("%020d\n", 123);
+	printf("Return value : %d\n\n", res);
+	res = ft_printf("%020d\n", 123);
+	printf("Return value : %d\n\n\n\n\n", res);
+
+	res = printf("%3.20d\n", -123);
+	printf("Return value : %d\n\n", res);
+	res = ft_printf("%3.20d\n", -123);
+	printf("Return value : %d\n\n\n\n\n", res);
+
+
+
+	res = printf("%20d\n", -123);
+	printf("Return value : %d\n\n", res);
+	res = ft_printf("%20d\n", -123);
+	printf("Return value : %d\n\n\n\n\n", res);
+	
+	res = printf("%020d\n", -123);
+	printf("Return value : %d\n\n", res);
+	res = ft_printf("%020d\n", -123);
+	printf("Return value : %d\n\n\n\n\n", res);
+
+
+
+	res = printf("%03.1d\n", 12345);
+	printf("Return value : %d\n\n", res);
+	res = ft_printf("%03.1d\n", 12345);
+	printf("Return value : %d\n\n\n\n\n", res);
 	
 	res = printf("%5.d\n", 0);
 	printf("return value : %d\n\n", res);
 	res = ft_printf("%5.d\n", 0);
+	printf("return value : %d\n\n\n\n\n", res);
+	
+	res = printf("%05.d\n", 0);
 	printf("return value : %d\n\n", res);
+	res = ft_printf("%05.d\n", 0);
+	printf("return value : %d\n\n\n\n\n", res);
+
+	res = printf("%03.2d\n", -1);
+	printf("Return value : %d\n\n", res);
+	res = ft_printf("%03.2d\n", -1);
+	printf("Return value : %d\n\n\n\n\n", res);
+	
+	res = printf("%010d\n", 0);
+	printf("Return value : %d\n", res);
+	res = ft_printf("%010d\n", 0);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+	
+	res = printf("%5.d\n", 0);
+	printf("return value : %d\n\n", res);
+	res = ft_printf("%5.d\n", 0);
+	printf("return value : %d\n\n\n\n\n", res);
 
 	res = printf("%5.d\n", 1);
 	printf("return value : %d\n\n", res);
@@ -101,11 +297,44 @@ res = printf("%03.1d\n", 0);
 	printf("Return value : %d\n\n", res);
 	res = ft_printf("%05.d\n", 0);
 	printf("Return value : %d\n\n", res);
+
+	res = printf("p12 %.0d\n", 0);
+	printf("Return value : %d\n", res);
+	res = ft_printf("p12 %.0d\n", 0);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+	
+	res = printf("p13 %.0d\n", 1);
+	printf("Return value : %d\n", res);
+	res = ft_printf("p13 %.0d\n", 1);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
+	res = printf("p14 %5.0d\n", 0);
+	printf("Return value : %d\n", res);
+	res = ft_printf("p14 %5.0d\n", 0);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+
+	res = printf("x12 %.d\n", 0);
+	printf("Return value : %d\n", res);
+	res = ft_printf("x12 %.d\n", 0);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+	
+	res = printf("x12 %.d\n", 2);
+	printf("Return value : %d\n", res);
+	res = ft_printf("x12 %.d\n", 2);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
 	
 	res = printf("@moulitest: %5.d %5.0d\n", 0, 0);
 	printf("Return value : %d\n\n", res);
 	res = ft_printf("@moulitest: %5.d %5.0d\n", 0, 0);
 	printf("Return value : %d\n\n", res);
+
+
+
 
 	printf("%d\n\n", printf("%-.12u\n", -20000000));
 	ft_printf("%d\n\n", ft_printf("%-.12u\n", -20000000));
@@ -401,6 +630,7 @@ res = printf("ret = %d\n", printf("%%p::[%010.1d]\n", -8473));
 	ft_printf("Return value : %d\n", res);
 	ft_printf("\n");
 
+
 	res = printf("p12 %.0d\n", 0);
 	printf("Return value : %d\n", res);
 	res = ft_printf("p12 %.0d\n", 0);
@@ -487,7 +717,13 @@ res = printf("ret = %d\n", printf("%%p::[%010.1d]\n", -8473));
 	res = ft_printf("%12.6d\n", -8425); //Donne "       -8425"
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
-
+	
+	res = printf("%010d\n", 0);
+	printf("Return value : %d\n", res);
+	res = ft_printf("%010d\n", 0);
+	printf("Return value : %d\n", res);
+	ft_printf("\n");
+	
 
 
 	printf("Test de Base\n");
@@ -664,13 +900,6 @@ printf("Test\n");
 	printf("Return value : %d\n", res);
 	ft_printf("\n");
 
-	res = printf("%010d\n", 0);
-	printf("Return value : %d\n", res);
-	res = ft_printf("%010d\n", 0);
-	printf("Return value : %d\n", res);
-	ft_printf("\n");
-
-
 	res = printf("%010x\n", 20);
 	printf("Return value : %d\n", res);
 	res = ft_printf("%010x\n", 20);
@@ -797,7 +1026,7 @@ printf("Test\n");
 	printf("%d\n\n", printf("6unsigned 1 %012u unsigned 2 %012u\n\n", 42, -42));
 	ft_printf("%d\n\n", ft_printf("6unsigned 1 %012u unsigned 2 %012u\n\n", 42, -42));
 	printf("\n");
-
+*/
 
 	return (0);
 }

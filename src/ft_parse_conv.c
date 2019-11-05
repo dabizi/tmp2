@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 17:56:33 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/03 17:06:31 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/05 19:24:46 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ t_printf	*ft_init_struct(void)
 	t_flag->conv = 1;
 	t_flag->percent = 0;
 	t_flag->size = -1;
+	t_flag->exception = 0;
 	return (t_flag);
 }
 
@@ -48,7 +49,6 @@ int		ft_is_flag(char c, t_printf *t_flag, int *i)
 	return (0);
 }
 
-
 t_printf	*ft_parse_conv(int *i, const char *str, va_list aux, int *res)
 {
 	t_printf	*t_flag;
@@ -57,9 +57,12 @@ t_printf	*ft_parse_conv(int *i, const char *str, va_list aux, int *res)
 	while (ft_is_flag(str[*i], t_flag, i))
 	{
 		*i += 1;
-		str[*i] == '0' ? ft_flags_z(aux, res, t_flag, i) : 0;
+		str[*i] == '0' ? ft_flags_z(res, t_flag, i) : 0;
 		str[*i] > '0' && str[*i] <= '9' ?
 		ft_flags_n((char*)(str + *i), t_flag, i) : 0;
+		str[*i] == '-' ? ft_flags_m(res, t_flag, (char*)(str + *i + 1), i) : 0;
+		str[*i] == '.' ? ft_flags_p(res, t_flag, (char*)(str + *i + 1), i) : 0;
+		str[*i] == '*' ? ft_flags_s(aux, res, t_flag) : 0;
 		str[*i] == 'c' ? ft_conv_char(aux, res, t_flag) : 0;
 		str[*i] == 's' ? ft_conv_str(aux, res, t_flag) : 0;
 		str[*i] == 'p' ? ft_conv_padr(aux, res, t_flag) : 0;
@@ -69,9 +72,7 @@ t_printf	*ft_parse_conv(int *i, const char *str, va_list aux, int *res)
 		str[*i] == 'x' ? ft_conv_xadr(aux, res, t_flag) : 0;
 		str[*i] == 'X' ? ft_conv_majxadr(aux, res, t_flag) : 0;
 		str[*i] == '%' ? ft_conv_per(res, t_flag) : 0;
-		str[*i] == '-' ? ft_flags_m(aux, res, t_flag) : 0;
-		str[*i] == '.' ? ft_flags_p(aux, res, t_flag) : 0;
-		str[*i] == '*' ? ft_flags_s(aux, res, t_flag) : 0;
+	//	printf("i vaut %d\n", *i);
 	}
 	free(t_flag);
 	return (t_flag);

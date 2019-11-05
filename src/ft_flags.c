@@ -6,7 +6,7 @@
 /*   By: jgrandne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 19:18:01 by jgrandne          #+#    #+#             */
-/*   Updated: 2019/11/04 21:09:37 by jgrandne         ###   ########.fr       */
+/*   Updated: 2019/11/05 20:50:41 by jgrandne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,33 +20,61 @@ void	ft_conv_per(int *res, t_printf *t_flag)
 	*res += 1;
 }
 
-void	ft_flags_m(va_list aux, int *res, t_printf *t_flag)
+void	ft_flags_m(int *res, t_printf *t_flag, char *str, int *i)
 {
+	int		nb;
+
+	nb = ft_atoi(str);
 	t_flag->fl_min = 1;
-//	if (t_flag->fl_zer)
-//		t_flag->fl_zer = 0;
+	if (nb > 1)
+	{
+		t_flag->space_after = nb;
+	}
+	else
+		t_flag->exception = 1;
+	if (nb == 0 && ft_isdigit(str[0]))
+		*i += 1;
+	else if (ft_isdigit(str[0]))
+		*i += ft_strlen(ft_itoa(nb));
 }
 
-void	ft_flags_z(va_list aux, int *res, t_printf *t_flag, int *i)
+void	ft_flags_z(int *res, t_printf *t_flag, int *i)
 {
 	if (!t_flag->fl_min)
 		t_flag->fl_zer = 1;
 	*i += 1;
 }
 
-void	ft_flags_p(va_list aux, int *res, t_printf *t_flag)
+void	ft_flags_p(int *res, t_printf *t_flag, char *str, int *i)
 {
+	int		nb;
+
+	*i += 1;
+	nb = ft_atoi(str);
 	t_flag->fl_poi = 1;
-	if (t_flag->fl_min && !t_flag->space_before && !t_flag->space_after
-	&& !t_flag->zero_before)
-		t_flag->fl_min = 0;
-//	if (t_flag->fl_zer)
-//		t_flag->fl_zer = 0;
+	if (nb > 1)
+	{
+		t_flag->width = nb;
+	}
+	else
+		t_flag->exception = 1;
+	if (t_flag->zero_before > t_flag->width)
+	{
+
+		t_flag->exception = 2;
+	}
+	if (!ft_isdigit(str[0]))
+		t_flag->exception = 3;
+	if (t_flag->zero_before > nb)
+		t_flag->exception = 4;
+	if (nb == 0 && ft_isdigit(str[0]))
+		*i += 1;
+	else if (ft_isdigit(str[0]))
+		*i += ft_strlen(ft_itoa(nb));
 }
 
 void	ft_flags_s(va_list aux, int *res, t_printf *t_flag)
 {
-
 	if (!t_flag->fl_sta)
 	{
 		t_flag->space_before = va_arg(aux, int);
@@ -59,8 +87,29 @@ void	ft_flags_s(va_list aux, int *res, t_printf *t_flag)
 
 void	ft_flags_n(char *str, t_printf *t_flag, int *i)
 {
-	if (ft_atoi(str) > 1)
+	int		nb;
+
+	nb = ft_atoi(str);
+	if (nb > 1)
 	{
+		if (t_flag->fl_zer && !t_flag->zero_before)
+		{
+			t_flag->zero_before = nb;
+//		printf("zero_before vaut %d\n", t_flag->zero_before);
+		}
+		else
+		{
+			t_flag->space_before = nb;
+//			printf("space_before vaut %d\n", t_flag->space_before);
+		}
+}
+	if (nb == 0 && ft_isdigit(str[0]))
+		*i += 1;
+	else if (ft_isdigit(str[0]))
+		*i += ft_strlen(ft_itoa(nb));
+}
+
+	/*
 		if (t_flag->fl_zer)
 		{
 			if (!t_flag->zero_before)
@@ -117,9 +166,8 @@ void	ft_flags_n(char *str, t_printf *t_flag, int *i)
 		else if (t_flag->fl_poi && t_flag->fl_zer)
 		{
 			t_flag->zero_before = ft_atoi(str);
-		//		printf("\n6\n");
-
-			}
-	}
-	*i += ft_strlen(ft_itoa(ft_atoi((str))));
-}
+		}
+		*/
+//	}
+//	*i += ft_strlen(ft_itoa(ft_atoi((str))));
+//}
